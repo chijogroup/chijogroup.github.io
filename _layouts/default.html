@@ -1,24 +1,32 @@
 <!doctype html>
-<html>
+<html class="h-full min-h-full scroll-smooth">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>{{ page.title }}</title>
+  <title>{{ site.title }}</title>
 
-  <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
-  <!-- ... -->
+  <meta name="description" content="{{ site.description }}">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
+
+  <link href="/assets/css/main.css" rel="stylesheet">
+
+
+
 </head>
-<body>
-  <!-- ... -->
 
-  <main>
-    {{ content }}
+<body class="">
+
+
+  <main class="min-h-screen">
+      {{ content }}
   </main>
 
-  {% include footer.html %}
 
-  
+
 </body>
 </html>
 

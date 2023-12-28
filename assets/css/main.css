@@ -1,0 +1,48 @@
+---
+---
+
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+
+
+@import url('https://fonts.googleapis.com/css2?family=Flow+Rounded&family=Redacted+Script:wght@400;700&display=swap');
+
+
+.section {
+    @apply px-4 sm:px-6 lg:px-8 py-32;
+}
+
+.content {
+    @apply max-w-7xl mx-auto;
+}
+
+
+.wireframe {
+
+    font-family: 'Redacted Script', cursive;
+    font-weight: 400 !important;
+
+}
+
+.wireframe img {
+    backdrop-filter: blur(64px);
+}
+
+.wireframe h1, .wireframe h2, .wireframe h3, .wrireframe h4, .wireframe h5, .wireframe h6 {
+
+    font-family: 'Redacted Script', cursive;
+    font-weight: 700 !important;
+
+}
+
+.wireframe button {
+    background-color: rgb(156 163 175) !important;
+    color: white;
+}
+
+
+
+
+
