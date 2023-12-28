@@ -1,16 +1,27 @@
 ---
 ---
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-
-
 @import url('https://fonts.googleapis.com/css2?family=Flow+Rounded&family=Redacted+Script:wght@400;700&display=swap');
 
+html, body, main {
+    height: 100%;
+    margin: 0;
+}
 
+.index-logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
 
+}
+
+.index-logo img {
+    max-width: 600px;
+    width: 100%;
+
+}
 
 .wireframe {
 
