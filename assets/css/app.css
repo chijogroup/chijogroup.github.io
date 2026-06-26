@@ -1,0 +1,148 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: 'Instrument Serif', serif;
+  --font-sans: 'Inter', system-ui, sans-serif;
+
+  /* Brand palette from styleguide */
+  --color-brand-beige: #ede8dd;
+  --color-brand-black: #1b1c1c;
+  --color-brand-cream: #fffeef;
+
+  --color-olive-50: oklch(98.8% 0.003 106.5);
+  --color-olive-100: oklch(96.6% 0.005 106.5);
+  --color-olive-200: oklch(93% 0.007 106.5);
+  --color-olive-300: oklch(88% 0.011 106.6);
+  --color-olive-400: oklch(73.7% 0.021 106.9);
+  --color-olive-500: oklch(58% 0.031 107.3);
+  --color-olive-600: oklch(46.6% 0.025 107.3);
+  --color-olive-700: oklch(39.4% 0.023 107.4);
+  --color-olive-800: oklch(28.6% 0.016 107.4);
+  --color-olive-900: oklch(22.8% 0.013 107.4);
+  --color-olive-950: oklch(15.3% 0.006 107.1);
+
+  --color-surface-0: #ffffff;
+  --color-surface-1: oklch(96.6% 0.005 106.5);
+
+  --color-bg-primary: #ede8dd;
+  --color-bg-secondary: #fffeef;
+  --color-text-primary: #1b1c1c;
+  --color-text-secondary: oklch(39.4% 0.023 107.4);
+  --color-btn-primary: #1b1c1c;
+}
+
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: var(--color-surface-primary);
+    --scroll-padding-top: 0;
+    scroll-padding-top: var(--scroll-padding-top);
+
+    @variant dark {
+      background-color: var(--color-olive-950);
+    }
+  }
+
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    
+  }
+
+ 
+}
+
+
+@layer components {
+
+  .h1 {
+    @apply text-4xl tracking-tight sm:text-7xl md:text-8xl;
+  }
+
+  .h2 {
+    @apply text-3xl tracking-tight sm:text-5xl md:text-6xl;
+  }
+
+  .h3 {
+    @apply text-2xl tracking-tight sm:text-4xl md:text-5xl;
+  }
+
+
+
+  .section {
+    @apply py-8 lg:py-16;
+  }
+
+  
+
+  .cj-card {
+    @apply rounded-lg border border-olive-200 bg-white/80 p-6 backdrop-blur-sm dark:border-olive-800 dark:bg-gray-800/80;
+  }
+
+  .container--narrow {
+    @apply max-w-6xl mx-auto;
+  }
+  
+  .btn {
+    @apply cursor-pointer font-semibold text-white shadow-xl hover:bg-olive-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-olive-600 dark:bg-olive-800 dark:hover:bg-olive-700 dark:focus-visible:outline-olive-500;
+  }
+
+  .btn-primary {
+    @apply bg-olive-950 px-12 py-4 rounded;
+  }
+
+  .form-label {
+    @apply block text-sm font-semibold text-olive-950 dark:text-white mb-1.5;
+  }
+
+  .form-input {
+    @apply block w-full rounded-lg bg-white px-4 py-3 text-base text-gray-900 border border-olive-400 placeholder:text-olive-400 transition-colors focus:outline-none focus:border-olive-950 focus:ring-2 focus:ring-olive-950/10 dark:bg-white/5 dark:text-white dark:border-white/30 dark:placeholder:text-gray-500 dark:focus:border-olive-400;
+  }
+
+  .form-input--error {
+    @apply border-red-400 focus:border-red-500 focus:ring-red-500/10 dark:border-red-600;
+  }
+
+  .form-hint {
+    @apply mt-1.5 block text-xs text-olive-500 dark:text-gray-500;
+  }
+
+  .form-error {
+    @apply mt-1.5 block text-xs text-red-600 dark:text-red-400;
+  }
+
+  .budget-card {
+    @apply relative flex cursor-pointer items-center justify-center rounded-lg border border-olive-400 px-4 py-3 text-sm font-medium text-olive-700 transition-all hover:border-olive-600 hover:bg-olive-50 has-[:checked]:border-olive-950 has-[:checked]:bg-olive-950 has-[:checked]:text-white dark:border-white/30 dark:text-gray-300 dark:hover:border-olive-400 dark:has-[:checked]:border-olive-500 dark:has-[:checked]:bg-olive-900 dark:has-[:checked]:text-white;
+  }
+
+  .hero-title {
+    @apply text-5xl font-display text-olive-950 tracking-tight sm:text-8xl dark:text-white;
+  }
+ 
+}
+
+
+/* Scroll-reveal animations — pure CSS, no JS required */
+@keyframes reveal {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  [data-animate] {
+    animation: reveal 0.65s cubic-bezier(0.16, 1, 0.3, 1) both;
+    animation-timeline: view();
+    animation-range: entry 0% entry 25%;
+  }
+}
+
+
+
+

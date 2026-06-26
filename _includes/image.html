@@ -1,0 +1,29 @@
+{% comment %}
+  Responsive image component with srcset.
+
+  IMPORTANT: Jekyll requires the include filename to be a string literal, so
+  all parameters passed here must also be string literals — not Liquid
+  expressions with interpolation. For dynamic paths (e.g. inside a for loop)
+  build the <img> tag inline instead of calling this include.
+
+  Parameters:
+    src    (required) — path to the image, e.g. /assets/images/work/vosono/list.png
+    alt    (required) — alt text
+    class  (optional) — extra CSS classes on the <img>
+    sizes  (optional) — sizes attribute, defaults to "100vw"
+    lazy   (optional) — set to "false" to eagerly load; defaults to lazy
+{% endcomment %}
+
+{% assign _src   = include.src %}
+{% assign _alt   = include.alt | default: "" %}
+{% assign _class = include.class | default: "" %}
+{% assign _sizes = include.sizes | default: "100vw" %}
+{% assign _lazy  = include.lazy  | default: "true" %}
+
+<img
+  src="{{ _src }}"
+  alt="{{ _alt }}"
+  {% if _lazy != "false" %}loading="lazy"{% else %}loading="eager"{% endif %}
+  decoding="async"
+  {% if _class != "" %}class="{{ _class }}"{% endif %}
+/>

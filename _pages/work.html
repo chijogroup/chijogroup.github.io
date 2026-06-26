@@ -1,0 +1,123 @@
+---
+title: Work
+layout: default
+permalink: /work
+---
+
+{% assign all_services = "" | split: "" %}
+{% for item in site.data.work %}
+  {% assign work = item[1] %}
+  {% for service in work.services %}
+    {% unless all_services contains service %}
+      {% assign all_services = all_services | push: service %}
+    {% endunless %}
+  {% endfor %}
+{% endfor %}
+{% assign all_services = all_services | sort %}
+
+<header class="px-6 pt-24 pb-16 sm:pt-32 sm:pb-20 lg:px-8">
+  <div class="container mx-auto">
+    <p class="text-xs uppercase tracking-widest text-olive-500" data-animate>Work</p>
+    <h1 class="h1 max-w-3xl" data-animate>Selected projects</h1>
+    <p class="mt-8 text-xl font-sans text-pretty text-olive-600 sm:text-2xl leading-relaxed dark:text-gray-400 max-w-2xl" data-animate>A look at what we've been building — from brand foundations to full-stack products.</p>
+  </div>
+</header>
+
+<section class="px-6 pb-24 lg:px-8">
+  <div class="container mx-auto">
+
+    <!-- Filter bar -->
+    <div class="flex flex-wrap gap-2 mb-12" data-animate>
+      <button data-filter="all" class="filter-btn active px-4 py-1.5 rounded-full text-sm font-medium border border-olive-200 dark:border-olive-800 transition-colors cursor-pointer">
+        All
+      </button>
+      {% for service in all_services %}
+      <button data-filter="{{ service }}" class="filter-btn px-4 py-1.5 rounded-full text-sm font-medium border border-olive-200 dark:border-olive-800 transition-colors cursor-pointer">
+        {{ service }}
+      </button>
+      {% endfor %}
+    </div>
+
+    <!-- Work grid -->
+    <div class="grid grid-cols-1 gap-px dark:bg-olive-800 sm:grid-cols-2 lg:grid-cols-3">
+      {% for item in site.data.work %}
+        {% assign work = item[1] %}
+        {% assign until_label = work.until | default: 0 %}
+        {% assign slug = item[0] %}
+        <a
+          href="/work/{{ work.name | downcase | replace: ' ', '-' }}"
+          class="work-item group bg-surface-0 dark:bg-olive-950 flex flex-col hover:bg-surface-1 dark:hover:bg-olive-900 transition-colors"
+          data-services="{{ work.services | join: ',' }}"
+        >
+          <div class="aspect-4/5 w-full overflow-hidden bg-olive-100 dark:bg-olive-900">
+            <img
+              src="/assets/images/work/{{ slug }}/list.jpg"
+              alt="{{ work.name }}"
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              onerror="this.replaceWith(this.nextElementSibling)"
+            />
+            <div class="hidden w-full h-full bg-olive-100 dark:bg-olive-900"></div>
+          </div>
+          <div class="flex flex-col gap-3 flex-1 p-8">
+            <div class="flex items-start justify-between gap-4">
+              <h2 class="text-4xl font-display tracking-tight text-olive-950 dark:text-white group-hover:text-olive-700 dark:group-hover:text-olive-200 transition-colors">{{ work.name }}</h2>
+              <span class="text-xs uppercase tracking-widest text-olive-400 shrink-0 pt-2">{{ work.from }}{% if until_label != 0 %} – {{ work.until }}{% endif %}</span>
+            </div>
+            <p class="text-sm text-olive-500 dark:text-gray-400">{{ work.location }}</p>
+            <p class="text-base text-olive-600 dark:text-gray-400 leading-relaxed flex-1">{{ work.about }}</p>
+
+            <div class="flex flex-wrap gap-1.5 mt-2">
+              {% for service in work.services %}
+              <span class="inline-block px-2.5 py-1 rounded text-xs font-medium bg-olive-100 text-olive-700 dark:bg-olive-900 dark:text-olive-300">{{ service }}</span>
+              {% endfor %}
+            </div>
+          </div>
+        </a>
+      {% endfor %}
+    </div>
+
+    <!-- Empty state -->
+    <div id="work-empty" class="hidden py-24 text-center">
+      <p class="text-olive-500 dark:text-gray-500 text-lg">No projects match this filter.</p>
+    </div>
+
+  </div>
+</section>
+
+<style>
+  .filter-btn { color: oklch(46.6% 0.025 107.3); }
+  .filter-btn:hover { color: oklch(15.3% 0.006 107.1); }
+  .filter-btn.active { background-color: oklch(15.3% 0.006 107.1); color: white; }
+  @media (prefers-color-scheme: dark) {
+    .filter-btn { color: rgb(156 163 175); }
+    .filter-btn:hover { color: white; }
+    .filter-btn.active { background-color: white; color: oklch(15.3% 0.006 107.1); }
+  }
+  .work-item.hidden { display: none; }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const buttons = document.querySelectorAll('.filter-btn');
+    const items = document.querySelectorAll('.work-item');
+    const empty = document.getElementById('work-empty');
+
+    buttons.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        const filter = btn.dataset.filter;
+        buttons.forEach(function (b) { b.classList.remove('active'); });
+        btn.classList.add('active');
+
+        let visible = 0;
+        items.forEach(function (item) {
+          const services = item.dataset.services ? item.dataset.services.split(',') : [];
+          const show = filter === 'all' || services.includes(filter);
+          item.classList.toggle('hidden', !show);
+          if (show) visible++;
+        });
+
+        empty.classList.toggle('hidden', visible > 0);
+      });
+    });
+  });
+</script>

@@ -1,0 +1,45 @@
+
+
+root:
+
+  
+  - title: "Discover"
+    description: "We help businesses and organizations create digital products that are both beautiful and functional."
+    subs:
+      - title: "Product Design"
+        description: "We help businesses and organizations create digital products that are both beautiful and functional."
+        url: "/services/product-design"
+      - title: "Web Development"
+        description: "We help businesses and organizations create digital products that are both beautiful and functional."
+        url: "/services/web-development"
+      - title: "Mobile Development"
+        description: "We help businesses and organizations create digital products that are both beautiful and functional."
+        url: "/services/mobile-development"
+
+
+  - title: "Design"
+    description: "We help businesses and organizations create digital products that are both beautiful and functional."
+    subs:
+      - title: "Branding"
+        description: "We help businesses and organizations create digital products that are both beautiful and functional."
+        url: "/services/branding"
+      - title: "UI/UX Design"
+        description: "We help businesses and organizations create digital products that are both beautiful and functional."
+        url: "/services/ui-ux-design"
+      - title: "Illustration"
+        description: "We help businesses and organizations create digital products that are both beautiful and functional."
+        url: "/services/illustration"
+
+
+  - title: "Develop"
+    description: "We help businesses and organizations create digital products that are both beautiful and functional."
+    subs:
+      - title: "Web Development"
+        description: "We help businesses and organizations create digital products that are both beautiful and functional."
+        url: "/services/web-development"
+      - title: "Mobile Development"
+        description: "We help businesses and organizations create digital products that are both beautiful and functional."
+        url: "/services/mobile-development"
+      - title: "API & Integrations"
+        description: "We help businesses and organizations create digital products that are both beautiful and functional."
+        url: "/services/api-integrations"

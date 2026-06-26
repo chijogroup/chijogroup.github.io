@@ -1,0 +1,29 @@
+---
+title: Discover
+layout: default
+permalink: /services/discover
+---
+
+{% assign discover = site.data.services.root | where: "title", "Discover" | first %}
+
+<section class="px-6 py-16 sm:py-24 lg:px-8 lg:py-24 lg:pt-48">
+  <div class="mx-auto max-w-3xl">
+    <p class="text-xs uppercase tracking-widest text-olive-500" data-animate>Services</p>
+    <h1 class="mt-3 h1" data-animate>{{ discover.title }}</h1>
+    <p class="mt-6 text-lg text-olive-600 dark:text-gray-400 sm:text-xl/8 text-pretty" data-animate>{{ discover.description }}</p>
+  </div>
+</section>
+
+<section class="py-16 border-t border-olive-200 dark:border-olive-900">
+  <div class="mx-auto max-w-3xl px-6 lg:px-8">
+    <div class="divide-y divide-olive-200 dark:divide-olive-800">
+      {% for sub in discover.subs %}
+      <a href="{{ sub.url }}" class="group flex flex-col gap-2 py-8 hover:opacity-70 transition-opacity" data-animate>
+        <h2 class="text-2xl font-display tracking-tight text-olive-950 dark:text-white">{{ sub.title }}</h2>
+        <p class="text-base text-olive-500 dark:text-gray-400 leading-relaxed">{{ sub.description }}</p>
+        <span class="mt-2 text-sm font-medium text-olive-950 dark:text-white inline-flex items-center gap-1">Learn more →</span>
+      </a>
+      {% endfor %}
+    </div>
+  </div>
+</section>

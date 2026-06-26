@@ -1,0 +1,51 @@
+---
+title: Services
+layout: default
+permalink: /services
+---
+
+{% assign services = site.data.services.root %}
+
+
+<header class="px-6 pt-24 pb-16 sm:pt-32 sm:pb-20 lg:px-8">
+  <div class="container mx-auto">
+    <p class="text-xs uppercase tracking-widest text-olive-500" data-animate>Services</p>
+    <h1 class="h1 max-w-3xl" data-animate>{{ site.data.content.services.title }}</h1>
+    <p class="mt-8 text-xl font-sans text-pretty text-olive-600 sm:text-2xl leading-relaxed dark:text-gray-400 max-w-2xl" data-animate>{{ site.data.content.services.description }}</p>
+  </div>
+</header>
+
+{% for service in services %}
+  <section class="py-16 sm:py-24 border-olive-200 dark:border-olive-900">
+  <div class="container mx-auto px-6 lg:px-8">
+    <div class="grid grid-cols-1 gap-16 lg:grid-cols-2 lg:gap-24 items-start">
+
+      {% assign is_even = forloop.index | modulo: 2 %}
+
+      <div class="{% if is_even == 0 %}lg:order-last{% endif %}">
+        <p class="text-xs uppercase tracking-widest text-olive-400" data-animate>0{{ forloop.index }}</p>
+        <h2 class="mt-3 text-5xl font-display tracking-tight text-olive-950 sm:text-7xl dark:text-white" data-animate>{{ service.title }}</h2>
+        <p class="mt-6 text-lg text-olive-600 leading-relaxed dark:text-gray-400 max-w-lg" data-animate>{{ service.description }}</p>
+
+        <div class="mt-10" data-animate>
+          <h3 class="text-sm font-semibold text-olive-950 dark:text-white">{{ service.sub_heading }}</h3>
+          <ul class="mt-4 space-y-3">
+            {% for sub in service.subs %}
+              <li class="flex items-center gap-3 text-base text-olive-600 dark:text-gray-400">
+                <span class="w-1.5 h-1.5 rounded-full bg-olive-400 flex-shrink-0"></span>
+                {{ sub.title }}
+              </li>
+            {% endfor %}
+          </ul>
+          <a href="/services/{{ service.title | downcase | replace: ' ', '-' }}" class="mt-8 inline-flex items-center gap-1 text-base font-medium text-olive-950 dark:text-white border-b border-olive-950 dark:border-white pb-0.5 hover:text-olive-600 hover:border-olive-600 transition-colors">
+            Learn more about {{ service.title }} →
+          </a>
+        </div>
+      </div>
+
+      <div class="aspect-4/5 w-full rounded-2xl bg-surface-1 dark:bg-olive-900 {% if is_even == 0 %}lg:order-first{% endif %}" data-animate></div>
+
+    </div>
+  </div>
+</section>
+{% endfor %}

@@ -34,13 +34,24 @@ github_username:  chijogroup
 #theme: minima
 plugins:
   - jekyll-feed
-  - jekyll-postcss
+  - jekyll-tailwind
+
+
+defaults:
+  - scope:
+      path: "assets/images"
+    values:
+      image: true
 
 
 include: ['_pages']
 
-postcss:
-  cache: false
+
+tailwind:
+  input: assets/css/app.css
+  minify: true
+
+
 
 sass:
   style: compact # possible values: nested expanded compact compressed
