@@ -9,3 +9,4 @@ services:
 images:
   - "menu-cover.jpg"
   - "menu-inner.jpg"
+slug: baiju

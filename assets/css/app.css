@@ -93,11 +93,11 @@
   }
 
   .form-label {
-    @apply block text-sm font-semibold text-olive-950 dark:text-white mb-1.5;
+    @apply block text-sm lg:text-base font-semibold text-olive-950 dark:text-white mb-2;
   }
 
   .form-input {
-    @apply block w-full rounded-lg bg-white px-4 py-3 text-base text-gray-900 border border-olive-400 placeholder:text-olive-400 transition-colors focus:outline-none focus:border-olive-950 focus:ring-2 focus:ring-olive-950/10 dark:bg-white/5 dark:text-white dark:border-white/30 dark:placeholder:text-gray-500 dark:focus:border-olive-400;
+    @apply block w-full rounded-lg bg-white px-4 py-3 lg:px-5 lg:py-4 text-base lg:text-lg text-gray-900 border border-olive-400 placeholder:text-olive-400 transition-colors focus:outline-none focus:border-olive-950 focus:ring-2 focus:ring-olive-950/10 dark:bg-white/5 dark:text-white dark:border-white/30 dark:placeholder:text-gray-500 dark:focus:border-olive-400;
   }
 
   .form-input--error {
