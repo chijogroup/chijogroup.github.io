@@ -9,3 +9,4 @@ services:
   - "Web Development"
 images:
   - "list.png"
+slug: chirp-halo

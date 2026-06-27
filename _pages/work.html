@@ -5,8 +5,10 @@ permalink: /work
 ---
 
 {% assign all_services = "" | split: "" %}
+{% assign work_array = "" | split: "" %}
 {% for item in site.data.work %}
   {% assign work = item[1] %}
+  {% assign work_array = work_array | push: work %}
   {% for service in work.services %}
     {% unless all_services contains service %}
       {% assign all_services = all_services | push: service %}
@@ -14,6 +16,7 @@ permalink: /work
   {% endfor %}
 {% endfor %}
 {% assign all_services = all_services | sort %}
+{% assign sorted_work = work_array | sort: "from" | reverse %}
 
 <header class="px-6 pt-24 pb-16 sm:pt-32 sm:pb-20 lg:px-8">
   <div class="container mx-auto">
@@ -27,7 +30,7 @@ permalink: /work
   <div class="container mx-auto">
 
     <!-- Filter bar -->
-    <div class="flex flex-wrap gap-2 mb-12" data-animate>
+    <div class="flex flex-wrap gap-2 mb-2 pb-8 border-b border-olive-200 dark:border-olive-800" data-animate>
       <button data-filter="all" class="filter-btn active px-4 py-1.5 rounded-full text-sm font-medium border border-olive-200 dark:border-olive-800 transition-colors cursor-pointer">
         All
       </button>
@@ -38,40 +41,26 @@ permalink: /work
       {% endfor %}
     </div>
 
-    <!-- Work grid -->
-    <div class="grid grid-cols-1 gap-px dark:bg-olive-800 sm:grid-cols-2 lg:grid-cols-3">
-      {% for item in site.data.work %}
-        {% assign work = item[1] %}
-        {% assign until_label = work.until | default: 0 %}
-        {% assign slug = item[0] %}
+    <!-- Work list -->
+    <div id="work-list" class="divide-y divide-olive-100 dark:divide-olive-900">
+      {% for work in sorted_work %}
+        {% assign slug = work.slug %}
+        {% assign idx = forloop.index %}
         <a
           href="/work/{{ work.name | downcase | replace: ' ', '-' }}"
-          class="work-item group bg-surface-0 dark:bg-olive-950 flex flex-col hover:bg-surface-1 dark:hover:bg-olive-900 transition-colors"
+          class="work-item group flex items-center gap-6 sm:gap-10 py-7 sm:py-10 transition-colors"
           data-services="{{ work.services | join: ',' }}"
         >
-          <div class="aspect-4/5 w-full overflow-hidden bg-olive-100 dark:bg-olive-900">
-            <img
-              src="/assets/images/work/{{ slug }}/list.jpg"
-              alt="{{ work.name }}"
-              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-              onerror="this.replaceWith(this.nextElementSibling)"
-            />
-            <div class="hidden w-full h-full bg-olive-100 dark:bg-olive-900"></div>
-          </div>
-          <div class="flex flex-col gap-3 flex-1 p-8">
-            <div class="flex items-start justify-between gap-4">
-              <h2 class="text-4xl font-display tracking-tight text-olive-950 dark:text-white group-hover:text-olive-700 dark:group-hover:text-olive-200 transition-colors">{{ work.name }}</h2>
-              <span class="text-xs uppercase tracking-widest text-olive-400 shrink-0 pt-2">{{ work.from }}{% if until_label != 0 %} – {{ work.until }}{% endif %}</span>
-            </div>
-            <p class="text-sm text-olive-500 dark:text-gray-400">{{ work.location }}</p>
-            <p class="text-base text-olive-600 dark:text-gray-400 leading-relaxed flex-1">{{ work.about }}</p>
+          <span class="text-xs uppercase tracking-widest text-olive-300 dark:text-olive-700 shrink-0 w-5 hidden sm:block">{% if idx < 10 %}0{{ idx }}{% else %}{{ idx }}{% endif %}</span>
 
-            <div class="flex flex-wrap gap-1.5 mt-2">
-              {% for service in work.services %}
-              <span class="inline-block px-2.5 py-1 rounded text-xs font-medium bg-olive-100 text-olive-700 dark:bg-olive-900 dark:text-olive-300">{{ service }}</span>
-              {% endfor %}
-            </div>
+          <h2 class="font-display tracking-tight text-olive-950 dark:text-white group-hover:text-olive-500 dark:group-hover:text-olive-300 transition-colors leading-none flex-1 text-4xl sm:text-6xl lg:text-7xl">{{ work.name }}</h2>
+
+          <div class="ml-auto shrink-0 hidden sm:flex flex-col gap-1.5 items-end">
+            <span class="text-sm text-olive-400 dark:text-olive-600">{{ work.from }}</span>
+            <p class="text-xs text-olive-500 dark:text-gray-500 text-right max-w-[180px] leading-relaxed">{{ work.services | join: " · " }}</p>
           </div>
+
+          <span class="text-olive-300 dark:text-olive-700 group-hover:text-olive-500 dark:group-hover:text-olive-400 transition-colors shrink-0 text-xl">→</span>
         </a>
       {% endfor %}
     </div>
@@ -84,34 +73,47 @@ permalink: /work
   </div>
 </section>
 
+<!-- Reviews -->
+<section class="py-16 sm:py-24 border-t border-olive-200 dark:border-olive-900 px-6 lg:px-8">
+  <div class="container mx-auto">
+    <p class="text-xs uppercase tracking-widest text-olive-500 mb-14" data-animate>What clients say</p>
+    <div class="flex flex-col gap-20">
+      {% for review in site.data.reviews %}
+        {% include review.html review=review %}
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
 <style>
   .filter-btn { color: oklch(46.6% 0.025 107.3); }
-  .filter-btn:hover { color: oklch(15.3% 0.006 107.1); }
-  .filter-btn.active { background-color: oklch(15.3% 0.006 107.1); color: white; }
+  .filter-btn:hover { color: oklch(15.3% 0.006 107.1); background-color: oklch(96.6% 0.005 106.5); }
+  .filter-btn.active { background-color: oklch(15.3% 0.006 107.1); color: white; border-color: oklch(15.3% 0.006 107.1); }
   @media (prefers-color-scheme: dark) {
     .filter-btn { color: rgb(156 163 175); }
-    .filter-btn:hover { color: white; }
-    .filter-btn.active { background-color: white; color: oklch(15.3% 0.006 107.1); }
+    .filter-btn:hover { color: white; background-color: oklch(22.8% 0.013 107.4); }
+    .filter-btn.active { background-color: white; color: oklch(15.3% 0.006 107.1); border-color: white; }
   }
   .work-item.hidden { display: none; }
 </style>
 
 <script>
   document.addEventListener('DOMContentLoaded', function () {
-    const buttons = document.querySelectorAll('.filter-btn');
-    const items = document.querySelectorAll('.work-item');
-    const empty = document.getElementById('work-empty');
+    // Filter logic
+    var buttons = document.querySelectorAll('.filter-btn');
+    var items = document.querySelectorAll('.work-item');
+    var empty = document.getElementById('work-empty');
 
     buttons.forEach(function (btn) {
       btn.addEventListener('click', function () {
-        const filter = btn.dataset.filter;
+        var filter = btn.dataset.filter;
         buttons.forEach(function (b) { b.classList.remove('active'); });
         btn.classList.add('active');
 
-        let visible = 0;
+        var visible = 0;
         items.forEach(function (item) {
-          const services = item.dataset.services ? item.dataset.services.split(',') : [];
-          const show = filter === 'all' || services.includes(filter);
+          var services = item.dataset.services ? item.dataset.services.split(',') : [];
+          var show = filter === 'all' || services.includes(filter);
           item.classList.toggle('hidden', !show);
           if (show) visible++;
         });
@@ -119,5 +121,6 @@ permalink: /work
         empty.classList.toggle('hidden', visible > 0);
       });
     });
+
   });
 </script>

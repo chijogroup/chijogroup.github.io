@@ -1,9 +1,11 @@
-
-- name: Jordan Holmes
-  role: Web Developer
-  link: /people/jordan
-
-
 - name: Foo Siang Chin
   role: Designer
   link: /people/chin
+  bio: "Chin shapes how our work looks and feels. She brings a sharp eye for detail and a genuine care for the people using what we make."
+  
+- name: Jordan Holmes
+  role: Developer
+  link: /people/jordan
+  bio: "Jordan builds the things we design. He's obsessed with performance, clean architecture, and making sure what ships actually works."
+
+

@@ -22,9 +22,16 @@
     
     <div class="hidden lg:flex lg:flex-1 lg:justify-end">
       <div class="hidden lg:flex lg:gap-x-12">
+        {% assign page_section = page.url | split: '/' | index: 1 %}
         {% for link in site.data.navigation.main %}
-          <a href="{{ link.url }}" 
-            class="font-semibold border-b-3 border-surface-0 border-dashed text-gray-900 p-2 dark:text-white hover:border-olive-300 {% if current_page?(link.href) %}border-olive-950 hover:border-olive-950 {% endif %}">
+          {% assign link_section = link.url | split: '/' | index: 1 %}
+          {% if page_section == link_section %}
+            {% assign is_current = true %}
+          {% else %}
+            {% assign is_current = false %}
+          {% endif %}
+          <a href="{{ link.url }}"
+            class="font-semibold border-b-3 border-dashed text-gray-900 p-2 dark:text-white transition-colors {% if is_current %}border-olive-950 dark:border-white{% else %}border-transparent hover:border-olive-300 dark:hover:border-olive-600{% endif %}">
             {{ link.title }}
           </a>
         {% endfor %}

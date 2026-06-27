@@ -4,16 +4,17 @@ title: CHIJO — We build apps.
 ---
 
 
-<section class="px-6 py-16 sm:py-24 lg:px-8 lg:py-24 lg:pt-48">
-  <div class="mx-auto max-w-3xl text-center">
-    <h1 class="h1" data-animate>{{ site.data.content.home.hero.title }}</h1>
-    <p class="mt-8 text-lg font-sans text-pretty text-olive-600 sm:text-xl/8 dark:text-gray-400" data-animate>{{ site.data.content.home.hero.subtitle }}</p>
-    <div class="mt-10 flex items-center justify-center gap-x-6" data-animate>
+<header class="px-6 pt-24 pb-16 sm:pt-32 sm:pb-20 lg:px-8">
+  <div class="container mx-auto">
+    <p class="text-xs uppercase tracking-widest text-olive-500" data-animate>CHIJO</p>
+    <h1 class="h1 max-w-4xl" data-animate>{{ site.data.content.home.hero.title }}</h1>
+    <p class="mt-8 text-xl font-sans text-pretty text-olive-600 sm:text-2xl leading-relaxed dark:text-gray-400 max-w-2xl" data-animate>{{ site.data.content.home.hero.subtitle }}</p>
+    <div class="mt-10 flex items-center gap-x-6" data-animate>
       <a href="{{ site.data.content.home.hero.cta[0].url }}" class="btn btn-primary">{{ site.data.content.home.hero.cta[0].title }}</a>
-      <a href="/projects" class="text-sm/6 font-semibold text-olive-950 dark:text-white">View Projects <span aria-hidden="true">→</span></a>
+      <a href="/work" class="text-sm/6 font-semibold text-olive-950 dark:text-white">View Projects <span aria-hidden="true">→</span></a>
     </div>
   </div>
-</section>
+</header>
 
 
 <section class="section">
@@ -27,6 +28,13 @@ title: CHIJO — We build apps.
 
     <div class="aspect-square bg-surface-1"></div>
 
+  </div>
+</section>
+
+
+<section class="py-16 sm:py-32 border-t border-olive-200 dark:border-olive-900 px-6 lg:px-8">
+  <div class="container mx-auto">
+    {% include review.html review=site.data.reviews[0] %}
   </div>
 </section>
 

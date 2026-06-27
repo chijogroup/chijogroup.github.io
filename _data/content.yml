@@ -19,3 +19,32 @@ contact:
   cta:
     - title: "Get in touch"
       url: "/contact"
+
+
+about:
+  title: "We build with intention."
+  description: "CHIJO is a digital product studio based in Kuala Lumpur. We partner with brands and founders to design and build things that last."
+  story:
+    label: "Our story"
+    heading: "Small studio, big conviction."
+    body_1: "We started CHIJO with a simple belief: good design and solid engineering shouldn't be a tradeoff. Too often, brands choose between beautiful and functional. We think you deserve both."
+    body_2: "From branding to full web apps, we take every project personally. We're a small, focused studio — which means the people you talk to are the people who do the work."
+  values:
+    label: "How we work"
+    heading: "Principles we don't compromise on."
+    items:
+      - number: "01"
+        title: "Craft over shortcuts"
+        description: "We don't rush. Every detail is considered, every line of code intentional. Quality isn't a feature — it's the baseline."
+      - number: "02"
+        title: "Personal, not transactional"
+        description: "We build lasting relationships. You'll work directly with the people making your product, not an account manager."
+      - number: "03"
+        title: "Connected by design"
+        description: "Design and development live under one roof. No handoffs, no gaps, no lost context between disciplines."
+  cta:
+    label: "Start a project"
+    heading: "Have something in mind?"
+    body: "We're always open to new collaborations. Tell us about your project and let's see if we're a good fit."
+    button: "Get in touch"
+    url: "/contact"
