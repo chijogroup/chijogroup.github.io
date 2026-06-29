@@ -1,0 +1,13 @@
+{% comment %}
+  service-tags.html — render a list of service names as linked tag pills
+  include.services — array of service name strings
+{% endcomment %}
+
+{% if include.services and include.services.size > 0 %}
+<div class="flex flex-wrap gap-1.5">
+  {% for service in include.services %}
+    {% assign _slug = service | downcase | replace: "/", "" | replace: "  ", " " | replace: " ", "-" %}
+    <a href="/services/{{ _slug }}" class="tag-link px-3 py-1.5">{{ service }}</a>
+  {% endfor %}
+</div>
+{% endif %}

@@ -6,7 +6,56 @@ until: 0
 services:
   - "Branding"
   - "Illustration"
-images:
-  - "menu-cover.jpg"
-  - "menu-inner.jpg"
 slug: baiju
+category: "Branding & Illustration"
+
+overview: >
+  Baiju set out to bring Japanese-inspired dining to a Malaysian audience without
+  pretending to be something it is not. The brand needed to feel warm, modern,
+  and genuinely local — a place that borrows from Japanese culinary tradition
+  while planting both feet firmly in Kuala Lumpur. We developed the full visual
+  identity and print menu system to carry that balance.
+
+challenge: >
+  Japanese-inspired restaurants in KL risk landing in one of two traps: an
+  over-familiar aesthetic that erases the reference entirely, or a reverential
+  imitation that feels imported rather than owned. The brief was to find a third
+  path — a visual language that acknowledged the influence without being
+  defined by it.
+
+approach: >
+  We developed a graphic system built around bold, simplified illustration —
+  confident line work that nods to Japanese print traditions while feeling
+  contemporary and distinctly made in Malaysia. The colour palette leaned warm
+  and earthy to counter the coolness often associated with Japanese aesthetics.
+  The menu was designed to read effortlessly while rewarding closer attention
+  through illustration detail.
+
+features:
+  - title: "Brand Identity"
+    description: >
+      A visual mark built around bold, simplified illustration — confident line
+      work that nods to Japanese print traditions while feeling contemporary and
+      grounded in KL. The warm, earthy palette counters the coolness often
+      associated with Japanese aesthetics, making the brand feel approachable
+      and distinctly local.
+    image: "menu-cover.jpg"
+    link_service: "Branding"
+  - title: "Menu Design"
+    description: >
+      The print menu carries the illustrative system into every spread — clear
+      typographic hierarchy for effortless reading, with illustration detail
+      that rewards closer attention. Designed to feel as good on the table as
+      it does in someone's hands.
+    menu_flip:
+      - "menu-cover.jpg"
+      - "menu-inner.jpg"
+    link_service: "Illustration"
+
+images:
+  - file: "menu-cover.jpg"
+    caption: "Menu cover — warm palette, bold illustrative mark"
+    span: full
+  - file: "menu-inner.jpg"
+    caption: "Inner spread — clear typographic hierarchy with illustrated accents"
+    span: half

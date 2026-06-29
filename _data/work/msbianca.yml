@@ -1,12 +1,35 @@
-
 name: MsBianca
 location: Kuala Lumpur, Malaysia
-about: Ms Bianca is a Malaysian-based fashion brand that specializes in creating elegant and contemporary clothing for
+about: Ms Bianca is a Malaysian fashion brand specialising in elegant, contemporary clothing with a distinctly local sensibility.
 from: 2023
 until: 0
 services:
   - "Branding"
   - "UI/UX Design"
   - "Web Development"
-images: []
 slug: msbianca
+category: "Branding & Web"
+
+overview: >
+  Ms Bianca is a Kuala Lumpur fashion label built on a clear idea: that
+  contemporary Malaysian women deserve a brand that speaks to them directly —
+  not through an imported aesthetic, but through confident, elegant design
+  that reflects where and who they are. We developed the brand identity,
+  UI/UX design, and full e-commerce web experience end to end.
+
+challenge: >
+  Fashion e-commerce is a crowded space, and many Malaysian labels default
+  to a generic international look to signal aspiration. Ms Bianca needed an
+  online presence that felt genuinely premium without losing its local character
+  — a site that could hold its own aesthetically while converting visitors who
+  were encountering the brand for the first time.
+
+approach: >
+  The brand identity was designed for digital-first legibility — a refined
+  logotype with strong proportions that reads well from a browser tab to a
+  full-bleed banner. The e-commerce UI prioritised product presentation:
+  generous image space, minimal UI chrome, and a checkout flow engineered
+  to remove every unnecessary step. The visual system extended consistently
+  from the site through email and social formats.
+
+images: []

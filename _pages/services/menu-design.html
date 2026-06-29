@@ -1,0 +1,131 @@
+---
+title: Menu Design
+layout: default
+permalink: /services/menu-design
+---
+
+{% assign design = site.data.services.root | where: "title", "Design" | first %}
+{% assign service = design.subs | where: "title", "Menu Design" | first %}
+
+<header class="px-6 pt-24 pb-16 sm:pt-32 sm:pb-20 lg:px-8">
+  <div class="container mx-auto">
+
+    <a href="/services" class="back-link inline-flex items-center gap-2 text-xs uppercase tracking-widest mb-12 block" data-animate>
+      ← Services
+    </a>
+
+    <div class="max-w-3xl">
+      <p class="text-xs uppercase tracking-widest text-muted mb-4" data-animate>Design</p>
+      <h1 class="hero-title leading-[0.9]" data-animate>Menu Design</h1>
+      <p class="mt-8 text-xl sm:text-2xl font-sans text-secondary leading-relaxed text-pretty" data-animate>
+        A menu is one of the most handled things in a hospitality business. We design menus
+        that carry your brand confidently from cover to inner spread — clear to read, considered
+        in detail, and built to last through a full print run.
+      </p>
+    </div>
+
+    <hr class="mt-12 border-olive-200 dark:border-olive-800" data-animate>
+
+  </div>
+</header>
+
+
+<section class="pb-16 lg:pb-24 px-6 lg:px-8">
+  <div class="container mx-auto">
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-10 lg:gap-16">
+
+      <div data-animate>
+        <p class="text-xs uppercase tracking-widest text-muted mb-4">What we do</p>
+        <ul class="space-y-3 text-base text-secondary leading-relaxed">
+          <li class="flex gap-3"><span class="mt-2 w-1.5 h-1.5 rounded-full bg-olive-400 flex-shrink-0"></span>Cover design</li>
+          <li class="flex gap-3"><span class="mt-2 w-1.5 h-1.5 rounded-full bg-olive-400 flex-shrink-0"></span>Inner spread layouts</li>
+          <li class="flex gap-3"><span class="mt-2 w-1.5 h-1.5 rounded-full bg-olive-400 flex-shrink-0"></span>Typography &amp; hierarchy</li>
+          <li class="flex gap-3"><span class="mt-2 w-1.5 h-1.5 rounded-full bg-olive-400 flex-shrink-0"></span>Illustration integration</li>
+          <li class="flex gap-3"><span class="mt-2 w-1.5 h-1.5 rounded-full bg-olive-400 flex-shrink-0"></span>Print-ready file delivery</li>
+          <li class="flex gap-3"><span class="mt-2 w-1.5 h-1.5 rounded-full bg-olive-400 flex-shrink-0"></span>Format variants (dine-in, takeaway, QR)</li>
+        </ul>
+      </div>
+
+      <div class="lg:col-span-2 space-y-8" data-animate>
+        <div>
+          <p class="text-xs uppercase tracking-widest text-muted mb-4">Our approach</p>
+          <p class="text-base leading-loose text-secondary">
+            We start from the brand — or build one if it does not yet exist. Every typographic
+            decision, every illustration placement, every margin is a consequence of what the
+            brand needs to communicate. The result is a menu that reads as a natural extension
+            of the space and the food, not an afterthought produced at the last minute before
+            opening.
+          </p>
+        </div>
+        <div>
+          <p class="text-base leading-loose text-secondary">
+            We handle the full process: concept, layout, illustration (where required), and
+            print-ready artwork. We work with your printer or can recommend suppliers depending
+            on the format and finish you need.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+{% comment %} ---- RELATED WORK ---- {% endcomment %}
+{% assign menu_work = "" | split: "" %}
+{% for item in site.data.work %}
+  {% assign w = item[1] %}
+  {% for feature in w.features %}
+    {% if feature.menu_flip %}
+      {% assign menu_work = menu_work | push: item %}
+      {% break %}
+    {% endif %}
+  {% endfor %}
+{% endfor %}
+
+{% if menu_work.size > 0 %}
+<section class="py-16 border-t border-olive-200 dark:border-olive-800 px-6 lg:px-8">
+  <div class="container mx-auto">
+    <p class="text-xs uppercase tracking-widest text-muted mb-10" data-animate>Work</p>
+    <div class="grid grid-cols-1 gap-px bg-olive-200 dark:bg-olive-800 sm:grid-cols-2 lg:grid-cols-3">
+      {% for item in menu_work %}
+        {% assign w = item[1] %}
+        {% assign s = item[0] %}
+        <a
+          href="/work/{{ w.name | downcase | replace: ' ', '-' }}"
+          class="related-card group bg-surface-0 dark:bg-olive-950 flex flex-col hover:bg-surface-1 dark:hover:bg-olive-900 transition-colors"
+          data-animate
+        >
+          <div class="aspect-video w-full overflow-hidden bg-olive-100 dark:bg-olive-900">
+            <img
+              src="/assets/images/work/{{ s }}/list.jpg"
+              alt="{{ w.name }}"
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              loading="lazy"
+              decoding="async"
+              onerror="this.style.display='none'"
+            />
+          </div>
+          <div class="p-6 flex flex-col gap-2">
+            <h3 class="text-2xl font-display tracking-tight transition-colors">{{ w.name }}</h3>
+            {% if w.about %}
+            <p class="text-sm text-muted leading-relaxed mt-0.5">{{ w.about }}</p>
+            {% endif %}
+          </div>
+        </a>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}
+
+
+<section class="py-16 border-t border-olive-200 dark:border-olive-800 px-6 lg:px-8">
+  <div class="container mx-auto max-w-2xl text-center">
+    <h2 class="text-3xl sm:text-5xl font-display tracking-tight" data-animate>Ready to start?</h2>
+    <p class="mt-6 text-base text-secondary leading-loose" data-animate>
+      Tell us about your venue and what you need — we will put together a proposal from there.
+    </p>
+    <a href="/contact" class="mt-8 inline-block btn btn-primary" data-animate>Get in touch</a>
+  </div>
+</section>

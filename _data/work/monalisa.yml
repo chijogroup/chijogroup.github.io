@@ -1,15 +1,66 @@
-
 name: Monalisa
 location: Kuala Lumpur, Malaysia
-about: Monalisa is a Malaysian-based fashion brand that specializes in creating elegant and contemporary clothing for
+about: Monalisa is a Malaysian fashion brand creating elegant, contemporary clothing for the modern woman.
 from: 2023
 until: 0
 services:
   - "Branding"
   - "Illustration"
-images:
-  - "list.jpg"
-  - "menu-cover.jpg"
-  - "menu-inner.jpg"
-  - "social-media-collage.jpg"
 slug: monalisa
+category: "Branding & Illustration"
+
+overview: >
+  Monalisa is a Kuala Lumpur fashion brand built around the idea of quiet luxury —
+  clothing that speaks through cut and quality rather than logo or spectacle.
+  The brief called for an identity to match: refined, feminine, and entirely
+  unshowy. We developed the brand mark, visual system, and a suite of collateral
+  across print and social formats.
+
+challenge: >
+  Fashion branding in Malaysia often defaults to either aspirational Western
+  minimalism or exuberant local colour. Monalisa needed to occupy a different
+  register — sophisticated without being cold, modern without erasing its
+  Malaysian roots. The challenge was building an identity that felt genuinely
+  elevated without borrowing its authority from elsewhere.
+
+approach: >
+  We built the identity around an elegant logotype with considered proportions
+  and tight letter-spacing — a mark that communicates restraint before anything
+  else is seen. The supporting illustration system introduced organic, fluid forms
+  that softened the geometry of the typography and gave the brand warmth. The
+  full system extended across lookbook layouts, swing tags, and social media
+  templates that could hold the brand consistently at scale.
+
+features:
+  - title: "Menu Design"
+    description: >
+      From cover to inner spread, Monalisa's printed menu carries the brand's
+      quiet luxury into every touchpoint. The logotype anchors the cover with
+      confident restraint, while interior layouts balance typography and whitespace
+      to let the product speak.
+    menu_flip:
+      - "menu-cover.jpg"
+      - "menu-inner.jpg"
+    link_service: "Branding"
+  - title: "Social Media Design"
+    description: >
+      A cohesive social media template system built to scale — consistent
+      across formats without feeling repetitive. Each template draws from the
+      same illustration and colour language, so the brand reads instantly
+      whether it appears in a feed, story, or shared post.
+    image: "social-media-collage.jpg"
+    link_service: "Illustration"
+
+images:
+  - file: "list.jpg"
+    caption: "Brand overview — mark and colour palette"
+    span: full
+  - file: "menu-cover.jpg"
+    caption: "Print collateral — logotype on primary brand colour"
+    span: half
+  - file: "menu-inner.jpg"
+    caption: "Lookbook layout — typography and illustration in balance"
+    span: half
+  - file: "social-media-collage.jpg"
+    caption: "Social media system — consistent templates across formats"
+    span: full

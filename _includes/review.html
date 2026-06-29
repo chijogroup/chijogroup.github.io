@@ -26,20 +26,11 @@
 
 {% else %}
   <figure data-animate>
-    <blockquote class="text-2xl sm:text-4xl lg:text-5xl font-display tracking-tight text-primary leading-tight">"{{ r.body }}"</blockquote>
+    <blockquote class="max-w-5xl text-2xl sm:text-2xl lg:text-2xl/10 font-display text-primary">"{{ r.body }}"</blockquote>
     <figcaption class="mt-10 flex items-center gap-6">
       <div class="w-px h-12 bg-olive-300 dark:bg-olive-700 shrink-0"></div>
       <div>
-        {% if r.work and r.work.size > 0 %}
-          <div class="flex flex-wrap gap-2 mb-3">
-            {% for slug in r.work %}
-              {% assign linked_work = site.data.work[slug] %}
-              {% if linked_work %}
-                <a href="/work/{{ linked_work.name | downcase | replace: ' ', '-' }}" class="tag-link px-2.5 py-1">{{ linked_work.name }}</a>
-              {% endif %}
-            {% endfor %}
-          </div>
-        {% endif %}
+        
         <p class="text-2xl sm:text-3xl font-display tracking-tight text-primary">{{ r.author }}</p>
         <p class="text-sm text-muted mt-1">{{ r.title }}, {{ r.company }}</p>
       </div>

@@ -1,8 +1,9 @@
 
 home:
   hero:
-    title: "A digital product studio"
-    subtitle: "We are a team of designers and developers who create beautiful and functional digital experiences."
+    title: "Design and code, from the same hands."
+    subtitle: "A small studio in KL. The people you talk to are the people who build your product — no handoffs, no account managers."
+    trust: "20+ projects shipped across Asia"
     cta:
       - title: "Get in touch"
         url: "/contact"
