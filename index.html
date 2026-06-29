@@ -6,12 +6,12 @@ title: CHIJO — We build apps.
 
 <header class="px-6 pt-24 pb-16 sm:pt-32 sm:pb-20 lg:px-8">
   <div class="container mx-auto">
-    <p class="text-xs uppercase tracking-widest text-olive-500" data-animate>CHIJO</p>
+    <p class="text-xs uppercase tracking-widest text-muted" data-animate>CHIJO</p>
     <h1 class="h1 max-w-4xl" data-animate>{{ site.data.content.home.hero.title }}</h1>
-    <p class="mt-8 text-xl font-sans text-pretty text-olive-600 sm:text-2xl leading-relaxed dark:text-gray-400 max-w-2xl" data-animate>{{ site.data.content.home.hero.subtitle }}</p>
+    <p class="mt-8 text-xl font-sans text-pretty text-secondary sm:text-2xl leading-relaxed max-w-2xl" data-animate>{{ site.data.content.home.hero.subtitle }}</p>
     <div class="mt-10 flex items-center gap-x-6" data-animate>
       <a href="{{ site.data.content.home.hero.cta[0].url }}" class="btn btn-primary">{{ site.data.content.home.hero.cta[0].title }}</a>
-      <a href="/work" class="text-sm/6 font-semibold text-olive-950 dark:text-white">View Projects <span aria-hidden="true">→</span></a>
+      <a href="/work" class="text-sm/6 font-semibold text-primary">View Projects <span aria-hidden="true">→</span></a>
     </div>
   </div>
 </header>
@@ -41,27 +41,27 @@ title: CHIJO — We build apps.
 
 <section class="py-16 sm:py-24 border-t border-olive-200 dark:border-olive-900">
   <div class="container mx-auto px-6 lg:px-8">
-    <p class="text-xs uppercase tracking-widest text-olive-500" data-animate>Services</p>
+    <p class="text-xs uppercase tracking-widest text-muted" data-animate>Services</p>
     <div class="mt-3 flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
-      <h2 class="text-3xl font-display font-medium tracking-tight text-olive-950 sm:text-7xl dark:text-white" data-animate>{{ site.data.content.services.title }}</h2>
-      <p class="text-sm text-olive-500 dark:text-gray-400 sm:max-w-xs sm:text-right leading-relaxed" data-animate>{{ site.data.content.services.description }}</p>
+      <h2 class="text-3xl font-display font-medium tracking-tight sm:text-7xl" data-animate>{{ site.data.content.services.title }}</h2>
+      <p class="text-sm text-muted sm:max-w-xs sm:text-right leading-relaxed" data-animate>{{ site.data.content.services.description }}</p>
     </div>
     <div class="mt-14 grid grid-cols-1 divide-y divide-olive-200 dark:divide-olive-800 sm:grid-cols-3 sm:divide-y-0 sm:divide-x">
 
       {% for service in site.data.services.root %}
         <a href="/services/{{ service.title | downcase | replace: ' ', '-' }}" class="group flex flex-col gap-4 py-8 sm:py-0 sm:px-8 sm:first:pl-0 sm:last:pr-0 hover:opacity-70 transition-opacity" data-animate>
-          <p class="text-xs uppercase tracking-widest text-olive-400">0{{ forloop.index }}</p>
-          <h3 class="text-4xl font-display tracking-tight text-olive-950 dark:text-white sm:text-5xl">{{ service.title }}</h3>
-          <p class="text-sm text-olive-500 dark:text-gray-400 leading-relaxed">{{ service.description }}</p>
+          <p class="text-xs uppercase tracking-widest text-subtle">0{{ forloop.index }}</p>
+          <h3 class="text-4xl font-display tracking-tight sm:text-5xl">{{ service.title }}</h3>
+          <p class="text-sm text-muted leading-relaxed">{{ service.description }}</p>
           <ul class="mt-1 space-y-2">
             {% for sub in service.subs %}
-              <li class="text-base text-olive-600 dark:text-gray-400 flex items-center gap-2">
+              <li class="text-base text-secondary flex items-center gap-2">
                 <span class="w-1 h-1 rounded-full bg-olive-400 dark:bg-olive-500 shrink-0"></span>
                 {{ sub.title }}
               </li>
             {% endfor %}
           </ul>
-          <span class="mt-auto text-sm font-medium text-olive-950 dark:text-white inline-flex items-center gap-1">
+          <span class="mt-auto text-sm font-medium text-primary inline-flex items-center gap-1">
             Learn more →
           </span>
         </a>

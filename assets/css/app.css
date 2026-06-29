@@ -45,9 +45,13 @@
   }
 
 
+  body {
+    @apply text-lg leading-relaxed text-olive-800 dark:text-gray-300;
+  }
+
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-display);
-    
+    @apply text-olive-950 dark:text-white;
   }
 
  
@@ -117,10 +121,86 @@
   }
 
   .hero-title {
-    @apply text-5xl font-display text-olive-950 tracking-tight sm:text-8xl dark:text-white;
+    @apply text-5xl font-display tracking-tight sm:text-8xl;
   }
- 
+
+  /* Tag / badge pill */
+  .tag {
+    @apply inline-block rounded text-xs font-medium;
+    background-color: var(--color-olive-100);
+    color: var(--color-olive-600);
+  }
+
+  .tag-link {
+    @apply tag transition-colors;
+  }
+
+  /* Back / breadcrumb link */
+  .back-link {
+    @apply text-subtle transition-colors;
+  }
+
+  /* Inline email / contact link */
+  .contact-link {
+    @apply text-primary transition-colors;
+  }
+
+  /* Service detail "learn more" underline link */
+  .service-link {
+    @apply inline-flex items-center gap-1 font-medium text-primary border-b border-olive-950 pb-0.5 transition-colors;
+  }
+
+  /* Footer nav / utility links */
+  .footer-link {
+    @apply transition-colors;
+  }
+
+
+  .text-primary {
+    @apply text-olive-950 dark:text-white;
+  }
+
+  .text-secondary {
+    @apply text-olive-600 dark:text-gray-400;
+  }
+
+  .text-muted {
+    @apply text-olive-500 dark:text-gray-500;
+  }
+
+  .text-subtle {
+    @apply text-olive-400 dark:text-olive-600;
+  }
+
+  .text-dim {
+    @apply text-olive-300 dark:text-olive-700;
+  }
+
 }
+
+
+/* Component hover & dark-mode states */
+
+@variant dark {
+  .tag { background-color: var(--color-olive-900); color: var(--color-olive-300); }
+  .tag-link:hover { background-color: var(--color-olive-800); }
+  .contact-link:hover { color: var(--color-olive-400); }
+  .service-link { border-color: white; }
+  .footer-link:hover { color: white; }
+  .work-item:hover h2 { color: var(--color-olive-300); }
+  .work-item:hover .work-arrow { color: var(--color-olive-400); }
+  .related-card:hover h3 { color: var(--color-olive-200); }
+}
+
+.tag-link:hover { background-color: var(--color-olive-200); }
+.back-link:hover { color: var(--color-olive-600); }
+.contact-link:hover { color: var(--color-olive-600); }
+.service-link:hover { color: var(--color-olive-600); border-color: var(--color-olive-600); }
+.footer-link:hover { color: var(--color-olive-950); }
+
+.work-item:hover h2 { color: var(--color-olive-500); }
+.work-item:hover .work-arrow { color: var(--color-olive-500); }
+.related-card:hover h3 { color: var(--color-olive-700); }
 
 
 /* Scroll-reveal animations — pure CSS, no JS required */

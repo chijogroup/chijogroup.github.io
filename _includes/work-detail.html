@@ -1,22 +1,22 @@
 <header class="px-6 pt-24 pb-16 sm:pt-32 sm:pb-20 lg:px-8">
   <div class="container mx-auto">
-    <a href="/work" class="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-olive-400 hover:text-olive-600 transition-colors mb-8 block" data-animate>
+    <a href="/work" class="back-link inline-flex items-center gap-2 text-xs uppercase tracking-widest mb-8 block" data-animate>
       ← Work
     </a>
     <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6">
       <div>
-        <p class="text-xs uppercase tracking-widest text-olive-500" data-animate>Client Work</p>
+        <p class="text-xs uppercase tracking-widest text-muted" data-animate>Client Work</p>
         <h1 class="hero-title mt-4 max-w-3xl" data-animate>{{ include.work.name }}</h1>
       </div>
       <div class="flex flex-col items-start sm:items-end gap-2 shrink-0" data-animate>
-        <p class="text-sm text-olive-500 dark:text-gray-400">{{ include.work.location }}</p>
-        <p class="text-sm text-olive-400">{{ include.work.from }}{% if include.work.until != 0 %} – {{ include.work.until }}{% endif %}</p>
+        <p class="text-sm text-muted">{{ include.work.location }}</p>
+        <p class="text-sm text-subtle">{{ include.work.from }}{% if include.work.until != 0 %} – {{ include.work.until }}{% endif %}</p>
       </div>
     </div>
-    <p class="mt-8 text-xl font-sans text-pretty text-olive-600 sm:text-2xl leading-relaxed dark:text-gray-400 max-w-2xl" data-animate>{{ include.work.about }}</p>
+    <p class="mt-8 text-xl font-sans text-pretty text-secondary sm:text-2xl leading-relaxed max-w-2xl" data-animate>{{ include.work.about }}</p>
     <div class="flex flex-wrap gap-2 mt-8" data-animate>
       {% for service in include.work.services %}
-      <span class="inline-block px-3 py-1.5 rounded text-xs font-medium bg-olive-100 text-olive-700 dark:bg-olive-900 dark:text-olive-300">{{ service }}</span>
+      <span class="tag px-3 py-1.5">{{ service }}</span>
       {% endfor %}
     </div>
   </div>
@@ -55,14 +55,14 @@
 {% if other_works_arr.size > 0 %}
 <section class="py-16 border-t border-olive-200 dark:border-olive-800">
   <div class="container mx-auto px-6 lg:px-8">
-    <p class="text-xs uppercase tracking-widest text-olive-500 mb-8" data-animate>More Work</p>
+    <p class="text-xs uppercase tracking-widest text-muted mb-8" data-animate>More Work</p>
     <div class="grid grid-cols-1 gap-px bg-olive-200 dark:bg-olive-800 sm:grid-cols-2 lg:grid-cols-3">
       {% for item in other_works_arr limit: 3 %}
         {% assign w = item[1] %}
         {% assign s = item[0] %}
         <a
           href="/work/{{ w.name | downcase | replace: ' ', '-' }}"
-          class="group bg-surface-0 dark:bg-olive-950 flex flex-col hover:bg-surface-1 dark:hover:bg-olive-900 transition-colors"
+          class="related-card group bg-surface-0 dark:bg-olive-950 flex flex-col hover:bg-surface-1 dark:hover:bg-olive-900 transition-colors"
           data-animate
         >
           <div class="aspect-video w-full overflow-hidden bg-olive-100 dark:bg-olive-900">
@@ -76,10 +76,10 @@
             />
           </div>
           <div class="p-6 flex flex-col gap-2">
-            <h3 class="text-2xl font-display tracking-tight text-olive-950 dark:text-white group-hover:text-olive-700 dark:group-hover:text-olive-200 transition-colors">{{ w.name }}</h3>
+            <h3 class="text-2xl font-display tracking-tight transition-colors">{{ w.name }}</h3>
             <div class="flex flex-wrap gap-1.5 mt-1">
               {% for service in w.services %}
-              <span class="inline-block px-2.5 py-1 rounded text-xs font-medium bg-olive-100 text-olive-700 dark:bg-olive-900 dark:text-olive-300">{{ service }}</span>
+              <span class="tag px-2.5 py-1">{{ service }}</span>
               {% endfor %}
             </div>
           </div>

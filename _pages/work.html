@@ -20,9 +20,9 @@ permalink: /work
 
 <header class="px-6 pt-24 pb-16 sm:pt-32 sm:pb-20 lg:px-8">
   <div class="container mx-auto">
-    <p class="text-xs uppercase tracking-widest text-olive-500" data-animate>Work</p>
+    <p class="text-xs uppercase tracking-widest text-muted" data-animate>Work</p>
     <h1 class="h1 max-w-3xl" data-animate>Selected projects</h1>
-    <p class="mt-8 text-xl font-sans text-pretty text-olive-600 sm:text-2xl leading-relaxed dark:text-gray-400 max-w-2xl" data-animate>A look at what we've been building — from brand foundations to full-stack products.</p>
+    <p class="mt-8 text-xl font-sans text-pretty text-secondary sm:text-2xl leading-relaxed max-w-2xl" data-animate>A look at what we've been building — from brand foundations to full-stack products.</p>
   </div>
 </header>
 
@@ -51,23 +51,23 @@ permalink: /work
           class="work-item group flex items-center gap-6 sm:gap-10 py-7 sm:py-10 transition-colors"
           data-services="{{ work.services | join: ',' }}"
         >
-          <span class="text-xs uppercase tracking-widest text-olive-300 dark:text-olive-700 shrink-0 w-5 hidden sm:block">{% if idx < 10 %}0{{ idx }}{% else %}{{ idx }}{% endif %}</span>
+          <span class="text-xs uppercase tracking-widest text-dim shrink-0 w-5 hidden sm:block">{% if idx < 10 %}0{{ idx }}{% else %}{{ idx }}{% endif %}</span>
 
-          <h2 class="font-display tracking-tight text-olive-950 dark:text-white group-hover:text-olive-500 dark:group-hover:text-olive-300 transition-colors leading-none flex-1 text-4xl sm:text-6xl lg:text-7xl">{{ work.name }}</h2>
+          <h2 class="font-display tracking-tight transition-colors leading-none flex-1 text-4xl sm:text-6xl lg:text-7xl">{{ work.name }}</h2>
 
           <div class="ml-auto shrink-0 hidden sm:flex flex-col gap-1.5 items-end">
-            <span class="text-sm text-olive-400 dark:text-olive-600">{{ work.from }}</span>
-            <p class="text-xs text-olive-500 dark:text-gray-500 text-right max-w-[180px] leading-relaxed">{{ work.services | join: " · " }}</p>
+            <span class="text-sm text-subtle">{{ work.from }}</span>
+            <p class="text-xs text-muted text-right max-w-[180px] leading-relaxed">{{ work.services | join: " · " }}</p>
           </div>
 
-          <span class="text-olive-300 dark:text-olive-700 group-hover:text-olive-500 dark:group-hover:text-olive-400 transition-colors shrink-0 text-xl">→</span>
+          <span class="work-arrow text-dim transition-colors shrink-0 text-xl">→</span>
         </a>
       {% endfor %}
     </div>
 
     <!-- Empty state -->
     <div id="work-empty" class="hidden py-24 text-center">
-      <p class="text-olive-500 dark:text-gray-500 text-lg">No projects match this filter.</p>
+      <p class="text-muted text-lg">No projects match this filter.</p>
     </div>
 
   </div>
@@ -76,7 +76,7 @@ permalink: /work
 <!-- Reviews -->
 <section class="py-16 sm:py-24 border-t border-olive-200 dark:border-olive-900 px-6 lg:px-8">
   <div class="container mx-auto">
-    <p class="text-xs uppercase tracking-widest text-olive-500 mb-14" data-animate>What clients say</p>
+    <p class="text-xs uppercase tracking-widest text-muted mb-14" data-animate>What clients say</p>
     <div class="flex flex-col gap-20">
       {% for review in site.data.reviews %}
         {% include review.html review=review %}

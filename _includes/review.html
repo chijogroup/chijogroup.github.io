@@ -3,20 +3,20 @@
 {% if r.image %}
   <figure class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center" data-animate>
     <div class="flex flex-col justify-between gap-10">
-      <blockquote class="text-2xl sm:text-3xl font-display tracking-tight text-olive-950 dark:text-white leading-snug">"{{ r.body }}"</blockquote>
+      <blockquote class="text-2xl sm:text-3xl font-display tracking-tight text-primary leading-snug">"{{ r.body }}"</blockquote>
       <figcaption>
         {% if r.work and r.work.size > 0 %}
           <div class="flex flex-wrap gap-2 mb-4">
             {% for slug in r.work %}
               {% assign linked_work = site.data.work[slug] %}
               {% if linked_work %}
-                <a href="/work/{{ linked_work.name | downcase | replace: ' ', '-' }}" class="inline-block px-2.5 py-1 rounded text-xs font-medium bg-olive-100 text-olive-700 dark:bg-olive-900 dark:text-olive-300 hover:bg-olive-200 dark:hover:bg-olive-800 transition-colors">{{ linked_work.name }}</a>
+                <a href="/work/{{ linked_work.name | downcase | replace: ' ', '-' }}" class="tag-link px-2.5 py-1">{{ linked_work.name }}</a>
               {% endif %}
             {% endfor %}
           </div>
         {% endif %}
-        <p class="text-base font-semibold text-olive-950 dark:text-white">{{ r.author }}</p>
-        <p class="text-sm text-olive-500 dark:text-gray-500 mt-0.5">{{ r.title }}, {{ r.company }}</p>
+        <p class="text-base font-semibold text-primary">{{ r.author }}</p>
+        <p class="text-sm text-muted mt-0.5">{{ r.title }}, {{ r.company }}</p>
       </figcaption>
     </div>
     <div class="aspect-4/5 rounded-2xl overflow-hidden bg-surface-1 dark:bg-olive-900">
@@ -26,7 +26,7 @@
 
 {% else %}
   <figure data-animate>
-    <blockquote class="text-2xl sm:text-4xl lg:text-5xl font-display tracking-tight text-olive-950 dark:text-white leading-tight">"{{ r.body }}"</blockquote>
+    <blockquote class="text-2xl sm:text-4xl lg:text-5xl font-display tracking-tight text-primary leading-tight">"{{ r.body }}"</blockquote>
     <figcaption class="mt-10 flex items-center gap-6">
       <div class="w-px h-12 bg-olive-300 dark:bg-olive-700 shrink-0"></div>
       <div>
@@ -35,13 +35,13 @@
             {% for slug in r.work %}
               {% assign linked_work = site.data.work[slug] %}
               {% if linked_work %}
-                <a href="/work/{{ linked_work.name | downcase | replace: ' ', '-' }}" class="inline-block px-2.5 py-1 rounded text-xs font-medium bg-olive-100 text-olive-700 dark:bg-olive-900 dark:text-olive-300 hover:bg-olive-200 dark:hover:bg-olive-800 transition-colors">{{ linked_work.name }}</a>
+                <a href="/work/{{ linked_work.name | downcase | replace: ' ', '-' }}" class="tag-link px-2.5 py-1">{{ linked_work.name }}</a>
               {% endif %}
             {% endfor %}
           </div>
         {% endif %}
-        <p class="text-2xl sm:text-3xl font-display tracking-tight text-olive-950 dark:text-white">{{ r.author }}</p>
-        <p class="text-sm text-olive-500 dark:text-gray-500 mt-1">{{ r.title }}, {{ r.company }}</p>
+        <p class="text-2xl sm:text-3xl font-display tracking-tight text-primary">{{ r.author }}</p>
+        <p class="text-sm text-muted mt-1">{{ r.title }}, {{ r.company }}</p>
       </div>
     </figcaption>
   </figure>

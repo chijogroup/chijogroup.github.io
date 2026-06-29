@@ -10,14 +10,14 @@ permalink: /contact
 
     <div class="flex flex-col gap-4 max-w-4xl">
       <div>
-        <p class="text-xs uppercase tracking-widest text-olive-600 dark:text-olive-400 mb-2" data-animate>Get in touch</p>
+        <p class="text-xs uppercase tracking-widest text-secondary mb-2" data-animate>Get in touch</p>
         <h1 class="hero-title" data-animate>{{ site.data.content.contact.title }}</h1>
-        <p class="mt-6 text-xl text-olive-700 dark:text-gray-400 leading-relaxed" data-animate>{{ site.data.content.contact.description }}</p>
+        <p class="mt-6 text-xl text-secondary leading-relaxed" data-animate>{{ site.data.content.contact.description }}</p>
       </div>
 
       <div class="pt-4" data-animate>
-        <p class="text-xs uppercase tracking-widest text-olive-500 dark:text-olive-500 mb-3">Or email us directly</p>
-        <a href="mailto:hello@chijo.my" class="text-lg font-medium text-olive-950 dark:text-white hover:text-olive-600 dark:hover:text-olive-400 transition-colors">
+        <p class="text-xs uppercase tracking-widest text-muted mb-3">Or email us directly</p>
+        <a href="mailto:hello@chijo.my" class="contact-link text-lg font-medium">
           hello@chijo.my
         </a>
       </div>
@@ -50,7 +50,7 @@ permalink: /contact
           <div class="sm:col-span-2">
             <div class="flex justify-between items-baseline mb-2">
               <label for="phone" class="form-label mb-0">Phone</label>
-              <span class="text-sm text-olive-400 dark:text-gray-500">Optional</span>
+              <span class="text-sm text-subtle">Optional</span>
             </div>
             <input id="phone" type="tel" name="phone" autocomplete="tel" class="form-input" />
           </div>
@@ -58,7 +58,7 @@ permalink: /contact
           <div class="sm:col-span-2">
             <div class="flex justify-between items-baseline mb-2">
               <label for="message" class="form-label mb-0">How can we help you?</label>
-              <span class="text-sm text-olive-400 dark:text-gray-500">Max 500 characters</span>
+              <span class="text-sm text-subtle">Max 500 characters</span>
             </div>
             <textarea id="message" name="message" rows="5" maxlength="500" class="form-input"></textarea>
           </div>
