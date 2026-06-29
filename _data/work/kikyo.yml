@@ -6,7 +6,54 @@ until: 0
 services:
   - "Branding"
   - "Illustration"
-images:
-  - "menu-cover.jpg"
-  - "menu-inner.jpg"
 slug: kikyo
+category: "Branding & Illustration"
+
+overview: >
+  Kikyo takes its name from the Japanese bellflower — a symbol of honesty and
+  unchanging love. The client wanted a visual identity and menu system that held
+  that meaning quietly: no decorative excess, no loud colour, just assured form.
+  We developed the full brand identity and a hand-illustrated print menu across
+  dine-in and takeaway formats.
+
+challenge: >
+  The brief called for contemporary Japanese dining to feel genuinely at home in
+  Kuala Lumpur without diluting its cultural grounding. Too much localisation and
+  it loses credibility; too much reverence and it feels cold and unapproachable.
+  The real challenge was signalling authenticity through restraint.
+
+approach: >
+  We anchored the system in a single illustrative mark — an abstracted bellflower
+  rendered in fine ink line — and built the entire identity outward from that
+  point. Typography was set in a Japanese-adjacent geometric serif with high
+  contrast and generous spacing. The menu held to a strict two-colour palette
+  (deep charcoal and cream) so the illustration could carry all the warmth.
+
+features:
+  - title: "Brand Identity"
+    description: >
+      The identity is anchored by a single illustrative mark — an abstracted
+      bellflower in fine ink line — built outward into a full visual system.
+      A deep charcoal and cream palette keeps the focus on the illustration,
+      letting quiet restraint signal authenticity where decoration would
+      undermine it.
+    image: "menu-cover.jpg"
+    link_service: "Branding"
+  - title: "Menu Design"
+    description: >
+      Set in a Japanese-adjacent geometric serif with high contrast and generous
+      spacing, the menu holds to a strict two-colour system throughout. Open
+      leading and disciplined white space let the typesetting breathe — and let
+      the illustration carry all the warmth.
+    menu_flip:
+      - "menu-cover.jpg"
+      - "menu-inner.jpg"
+    link_service: "Illustration"
+
+images:
+  - file: "menu-cover.jpg"
+    caption: "Menu cover — charcoal ground, hand-drawn bellflower mark, cream type"
+    span: full
+  - file: "menu-inner.jpg"
+    caption: "Inner spread — typeset with open leading and generous white space"
+    span: half

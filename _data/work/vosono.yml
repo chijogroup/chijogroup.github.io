@@ -8,8 +8,69 @@ services:
   - "UI/UX Design"
   - "Web Development"
   - "Mobile Development"
-images:
-  - "list.png"
-  - "admin-extension.png"
-  - "theme-form.png"
 slug: vosono
+category: "Product Design & Development"
+
+overview: >
+  Vosono gives Shopify merchants granular control over their storefronts — live
+  theme customisation, advanced admin extensions, and a companion mobile app —
+  without requiring a developer. The product sits at the intersection of merchant
+  empowerment and design system discipline: every control surface had to be
+  powerful enough for sophisticated stores yet accessible enough for first-time users.
+
+challenge: >
+  Shopify's native theme editor handles the basics, but merchants with complex
+  storefronts hit its ceiling quickly. The challenge was designing a tool that
+  layers on top of Shopify's existing UI without feeling foreign or duplicating
+  what's already there — while introducing capabilities that are genuinely new.
+  We also had to reconcile a desktop-first admin workflow with a mobile-first
+  monitoring use case within the same product.
+
+approach: >
+  We designed Vosono's interface to speak Shopify's visual grammar — familiar
+  enough that existing merchants felt at home, differentiated enough to signal
+  where Vosono's power begins. The admin extension was built around a progressive
+  disclosure model: simple surface, full depth on demand. The mobile companion
+  app prioritised read-and-react workflows — store health at a glance, with a
+  clear path to action when something needs attention.
+
+outcome: >
+  Vosono shipped to its first merchant cohort in 2026. Early feedback centred on
+  how naturally the tool integrated into existing Shopify workflows, with
+  onboarding completion rates exceeding initial targets from the first week of
+  open access.
+
+hero_image: "list.png"
+
+features:
+  - title: "Shopify Admin Extension"
+    description: >
+      Vosono lives inside Shopify's native admin — no context switching, no
+      separate dashboard to learn. Merchants access advanced controls exactly
+      where they already work, with progressive disclosure keeping the surface
+      clean until deeper functionality is needed.
+    image: "admin-extension.png"
+  - title: "Theme Customisation Panel"
+    description: >
+      A full-depth configuration panel that lets merchants adjust every visual
+      aspect of their storefront — colours, typography, layout — without writing
+      a single line of code. Changes preview live before any commitment to publish.
+    image: "theme-form.png"
+  - title: "Music Player"
+    description: >
+      A native music player experience built directly into the storefront — giving
+      merchants a way to set the mood for their brand without third-party embeds.
+      Designed to feel at home within any theme while staying fully customisable
+      through Vosono's configuration panel.
+    image: "hero.png"
+
+images:
+  - file: "list.png"
+    caption: "Dashboard — store health and theme status at a glance"
+    span: full
+  - file: "admin-extension.png"
+    caption: "Admin extension — progressive disclosure within Shopify's native UI"
+    span: half
+  - file: "theme-form.png"
+    caption: "Theme configuration panel — full customisation without developer dependency"
+    span: half

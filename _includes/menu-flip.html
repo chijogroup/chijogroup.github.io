@@ -1,0 +1,145 @@
+{% comment %}
+  menu-flip.html — animated page-flip image viewer
+  include.images  — array of image filenames
+  include.slug    — work project slug
+  include.id      — unique instance identifier (use forloop.index)
+{% endcomment %}
+
+{% assign _mf_id = "mf-" | append: include.id %}
+
+<div class="menu-flip" id="{{ _mf_id }}" aria-label="Menu viewer">
+
+  <div class="menu-flip__wrap">
+
+    <div class="menu-flip__book">
+      <img class="menu-flip__img" src="" alt="Menu page" draggable="false" />
+    </div>
+
+    <button class="menu-flip__arrow menu-flip__arrow--prev" aria-label="Previous page" disabled>
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="13 16 7 10 13 4"/>
+      </svg>
+    </button>
+
+    <button class="menu-flip__arrow menu-flip__arrow--next" aria-label="Next page">
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="7 4 13 10 7 16"/>
+      </svg>
+    </button>
+
+  </div>
+
+  <div class="menu-flip__footer">
+    <div class="menu-flip__dots" role="group" aria-label="Page navigation"></div>
+  </div>
+
+  <script type="application/json" class="menu-flip__data">
+    [{% for img in include.images %}"{{ '/assets/images/work/' | append: include.slug | append: '/' | append: img }}"{% unless forloop.last %},{% endunless %}{% endfor %}]
+  </script>
+
+</div>
+
+<script>
+(function () {
+  if (!window._MenuFlip) {
+    window._MenuFlip = class {
+      constructor(root) {
+        this.root = root;
+        this.images = JSON.parse(root.querySelector('.menu-flip__data').textContent);
+        this.current = 0;
+        this.busy = false;
+
+        this.book  = root.querySelector('.menu-flip__book');
+        this.img   = root.querySelector('.menu-flip__img');
+        this.dots  = root.querySelector('.menu-flip__dots');
+        this.prev  = root.querySelector('.menu-flip__arrow--prev');
+        this.next  = root.querySelector('.menu-flip__arrow--next');
+
+        this._buildDots();
+        this._show(0);
+
+        this.prev.addEventListener('click', () => this._go('prev'));
+        this.next.addEventListener('click', () => this._go('next'));
+
+        if (this.images.length <= 1) {
+          this.prev.hidden = true;
+          this.next.hidden = true;
+          this.dots.hidden = true;
+        }
+      }
+
+      _buildDots() {
+        this.images.forEach((_, i) => {
+          const btn = document.createElement('button');
+          btn.className = 'menu-flip__dot';
+          btn.setAttribute('aria-label', `Page ${i + 1}`);
+          btn.addEventListener('click', () => this._flipTo(i));
+          this.dots.appendChild(btn);
+        });
+      }
+
+      _show(index) {
+        this.img.src = this.images[index];
+        this.img.alt = `Page ${index + 1} of ${this.images.length}`;
+        this._syncDots();
+        this._syncArrows();
+      }
+
+      _syncDots() {
+        this.dots.querySelectorAll('.menu-flip__dot').forEach((d, i) => {
+          d.classList.toggle('menu-flip__dot--active', i === this.current);
+          d.setAttribute('aria-pressed', i === this.current ? 'true' : 'false');
+        });
+      }
+
+      _syncArrows() {
+        this.prev.disabled = this.current === 0;
+        this.next.disabled = this.current === this.images.length - 1;
+      }
+
+      _go(dir) {
+        const target = dir === 'next' ? this.current + 1 : this.current - 1;
+        if (target < 0 || target >= this.images.length) return;
+        this._flipTo(target, dir);
+      }
+
+      async _flipTo(index, dir) {
+        if (this.busy || index === this.current) return;
+        this.busy = true;
+
+        const direction = dir || (index > this.current ? 'next' : 'prev');
+        const outY = direction === 'next' ? -90 : 90;
+        const inY  = direction === 'next' ?  90 : -90;
+
+        // Flip out
+        this.book.style.transition = 'transform 0.22s ease-in';
+        this.book.style.transform  = `perspective(900px) rotateY(${outY}deg)`;
+        await this._waitTransition(this.book);
+
+        // Swap
+        this.current = index;
+        this._show(index);
+
+        // Flip in
+        this.book.style.transition = 'none';
+        this.book.style.transform  = `perspective(900px) rotateY(${inY}deg)`;
+        this.book.offsetHeight; // force reflow
+        this.book.style.transition = 'transform 0.22s ease-out';
+        this.book.style.transform  = 'perspective(900px) rotateY(0deg)';
+        await this._waitTransition(this.book);
+
+        this.busy = false;
+      }
+
+      _waitTransition(el) {
+        return new Promise(resolve =>
+          el.addEventListener('transitionend', resolve, { once: true })
+        );
+      }
+    };
+  }
+
+  const root = document.getElementById('{{ _mf_id }}');
+  if (root) new window._MenuFlip(root);
+})();
+</script>

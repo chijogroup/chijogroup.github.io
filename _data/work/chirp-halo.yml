@@ -7,6 +7,42 @@ services:
   - "Product Design"
   - "UI/UX Design"
   - "Web Development"
-images:
-  - "list.png"
 slug: chirp-halo
+category: "Product Design & Development"
+
+overview: >
+  Chirp Halo is a workspace tool built for creative studios — teams that move
+  fast across projects, clients, and disciplines but often lose time to process
+  overhead. The product centralises briefs, feedback, and deliverable tracking
+  into a single interface designed around how creative work actually flows,
+  not how project management theory says it should.
+
+challenge: >
+  Most project management tools were designed for engineering teams and feel
+  fundamentally alien to creative workflows. Chirp Halo's challenge was to build
+  something opinionated enough to guide good process without imposing a rigid
+  structure that creatives would abandon within a week. The interface had to feel
+  like a studio environment, not a ticket queue.
+
+approach: >
+  We designed Chirp Halo around the artefact rather than the task — briefs,
+  feedback threads, and deliverables are first-class objects rather than items
+  in a list. The information architecture was deliberately shallow to keep the
+  most-used actions always within reach. Visual hierarchy was used extensively
+  to communicate project state at a glance, reducing the need to drill into
+  individual items to understand what needs attention.
+
+features:
+  - title: "Project Dashboard"
+    description: >
+      The core workspace puts briefs, feedback threads, and deliverables front
+      and centre — not buried in a task list. Visual hierarchy communicates
+      project state at a glance, so the whole team knows what needs attention
+      without drilling into individual items.
+    image: "list.png"
+    link_service: "Product Design"
+
+images:
+  - file: "list.png"
+    caption: "Project overview — artefact-centred navigation, state at a glance"
+    span: full

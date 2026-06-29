@@ -6,9 +6,62 @@ until: 0
 services:
   - "Branding"
   - "Illustration"
-images:
-  - "menu.png"
-  - "menu-1.png"
-  - "menu-2.png"
-  - "menu-3.png"
 slug: chili-kampung
+category: "Branding & Illustration"
+
+overview: >
+  Chili Kampung is a food brand rooted in kampung tradition — bold flavours,
+  family recipes, the kind of cooking that people actually miss. The identity had
+  to match that energy: vivid, unpretentious, and instantly recognisable on a
+  market shelf. We developed the brand system and full print menu across all
+  product formats.
+
+challenge: >
+  Malaysian food brands often face a fork in the road: go modern and clinical,
+  or lean into heritage and risk looking dated. Chili Kampung needed to feel
+  proudly local and deeply rooted without reading as nostalgic kitsch. The brief
+  asked for something that could stand confidently alongside both artisan and
+  mass-market competitors.
+
+approach: >
+  We built the identity around a bold illustrative system — strong outlines,
+  saturated colour, and hand-drawn character that referenced kampung graphic
+  traditions without copying them. The illustration style gave the brand an
+  irreplaceable visual fingerprint. The menu and packaging system were designed
+  to carry maximum impact at small scale, ensuring the brand punched well above
+  its size on crowded shelves and tables.
+
+features:
+  - title: "Brand Identity"
+    description: >
+      A bold, illustrative mark with strong outlines and saturated colour —
+      drawn from kampung graphic traditions without copying them. The result
+      is an irreplaceable visual fingerprint that stands out on crowded shelves
+      and immediately signals what Chili Kampung is about.
+    image: "menu-1.png"
+    link_service: "Branding"
+  - title: "Menu System"
+    description: >
+      The full print menu system carries the illustration into every format —
+      covers, category dividers, and inner spreads — all designed for maximum
+      impact at small scale. Bold, high-contrast, and unmistakably Chili Kampung.
+    menu_flip:
+      - "menu.png"
+      - "menu-1.png"
+      - "menu-2.png"
+      - "menu-3.png"
+    link_service: "menu-design"
+
+images:
+  - file: "menu.png"
+    caption: "Menu system — bold illustration, high-contrast colour palette"
+    span: full
+  - file: "menu-1.png"
+    caption: "Cover — hand-drawn mark with saturated brand colours"
+    span: half
+  - file: "menu-2.png"
+    caption: "Category dividers — illustration as wayfinding"
+    span: half
+  - file: "menu-3.png"
+    caption: "Inner spread — typographic hierarchy within the illustrated system"
+    span: full

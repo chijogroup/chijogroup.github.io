@@ -29,6 +29,9 @@ root:
       - title: "Illustration"
         description: "We help businesses and organizations create digital products that are both beautiful and functional."
         url: "/services/illustration"
+      - title: "Menu Design"
+        description: "Print menus designed to carry your brand into every guest's hands — from cover to inner spread."
+        url: "/services/menu-design"
 
 
   - title: "Develop"

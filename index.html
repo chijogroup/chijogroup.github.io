@@ -6,13 +6,14 @@ title: CHIJO — We build apps.
 
 <header class="px-6 pt-24 pb-16 sm:pt-32 sm:pb-20 lg:px-8">
   <div class="container mx-auto">
-    <p class="text-xs uppercase tracking-widest text-muted" data-animate>CHIJO</p>
+    
     <h1 class="h1 max-w-4xl" data-animate>{{ site.data.content.home.hero.title }}</h1>
     <p class="mt-8 text-xl font-sans text-pretty text-secondary sm:text-2xl leading-relaxed max-w-2xl" data-animate>{{ site.data.content.home.hero.subtitle }}</p>
     <div class="mt-10 flex items-center gap-x-6" data-animate>
       <a href="{{ site.data.content.home.hero.cta[0].url }}" class="btn btn-primary">{{ site.data.content.home.hero.cta[0].title }}</a>
       <a href="/work" class="text-sm/6 font-semibold text-primary">View Projects <span aria-hidden="true">→</span></a>
     </div>
+    <p class="mt-4 text-sm text-muted" data-animate>{{ site.data.content.home.hero.trust }}</p>
   </div>
 </header>
 
@@ -20,13 +21,37 @@ title: CHIJO — We build apps.
 <section class="section">
   <div class="container mx-auto grid lg:grid-cols-3 gap-4">
 
-    <div class="aspect-square bg-surface-1"></div>
+    <a href="/work/monalisa" class="relative overflow-hidden rounded-lg aspect-square group block">
+      <img src="/assets/images/work/monalisa/list.jpg" alt="Monalisa" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+      <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent px-4 pt-10 pb-4">
+        <p class="text-white font-display text-xl tracking-tight">Monalisa</p>
+        <p class="text-white/60 text-xs uppercase tracking-widest mt-0.5">Branding & Illustration</p>
+      </div>
+    </a>
 
-    <div class="aspect-square bg-surface-1"></div>
+    <a href="/work/vosono" class="relative overflow-hidden rounded-lg aspect-square group block">
+      <img src="/assets/images/work/vosono/hero.png" alt="Vosono" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+      <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent px-4 pt-10 pb-4">
+        <p class="text-white font-display text-xl tracking-tight">Vosono</p>
+        <p class="text-white/60 text-xs uppercase tracking-widest mt-0.5">Product Design & Development</p>
+      </div>
+    </a>
 
-    <div class="block aspect-2/1 bg-surface-1 col-span-2"></div>
+    <a href="/work/kikyo" class="relative overflow-hidden rounded-lg aspect-square group block">
+      <img src="/assets/images/work/kikyo/menu-cover.jpg" alt="Kikyo" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+      <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent px-4 pt-10 pb-4">
+        <p class="text-white font-display text-xl tracking-tight">Kikyo</p>
+        <p class="text-white/60 text-xs uppercase tracking-widest mt-0.5">Branding & Illustration</p>
+      </div>
+    </a>
 
-    <div class="aspect-square bg-surface-1"></div>
+    <a href="/work/chirp-halo" class="relative overflow-hidden rounded-lg col-span-2 block group" style="aspect-ratio: 2/1;">
+      <img src="/assets/images/work/chirp-halo/list.png" alt="Chirp Halo" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+      <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent px-4 pt-10 pb-4">
+        <p class="text-white font-display text-xl tracking-tight">Chirp Halo</p>
+        <p class="text-white/60 text-xs uppercase tracking-widest mt-0.5">Product Design & Development</p>
+      </div>
+    </a>
 
   </div>
 </section>
@@ -34,7 +59,8 @@ title: CHIJO — We build apps.
 
 <section class="py-16 sm:py-32 border-t border-olive-200 dark:border-olive-900 px-6 lg:px-8">
   <div class="container mx-auto">
-    {% include review.html review=site.data.reviews[0] %}
+    {% assign _review = site.data.reviews[0] %}
+    {% include review.html review=_review %}
   </div>
 </section>
 
