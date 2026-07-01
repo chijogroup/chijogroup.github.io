@@ -20,7 +20,6 @@ permalink: /work
 
 <header class="px-6 pt-24 pb-16 sm:pt-32 sm:pb-20 lg:px-8">
   <div class="container mx-auto">
-    <p class="text-xs uppercase tracking-widest text-muted" data-animate>Work</p>
     <h1 class="h1 max-w-3xl" data-animate>Selected projects</h1>
     <p class="mt-8 text-xl font-sans text-pretty text-secondary sm:text-2xl leading-relaxed max-w-2xl" data-animate>A look at what we've been building — from brand foundations to full-stack products.</p>
   </div>
@@ -51,8 +50,6 @@ permalink: /work
           class="work-item group flex items-center gap-6 sm:gap-10 py-7 sm:py-10 transition-colors"
           data-services="{{ work.services | join: ',' }}"
         >
-          <span class="text-xs uppercase tracking-widest text-dim shrink-0 w-5 hidden sm:block">{% if idx < 10 %}0{{ idx }}{% else %}{{ idx }}{% endif %}</span>
-
           <h2 class="font-display tracking-tight transition-colors leading-none flex-1 text-4xl sm:text-6xl lg:text-7xl">{{ work.name }}</h2>
 
           <div class="ml-auto shrink-0 hidden sm:flex flex-col gap-1.5 items-end">
@@ -76,7 +73,6 @@ permalink: /work
 <!-- Reviews -->
 <section class="py-16 sm:py-24 border-t border-olive-200 dark:border-olive-900 px-6 lg:px-8">
   <div class="container mx-auto">
-    <p class="text-xs uppercase tracking-widest text-muted mb-14" data-animate>What clients say</p>
     <div class="flex flex-col gap-20">
       {% for review in site.data.reviews %}
         {% include review.html review=review %}
