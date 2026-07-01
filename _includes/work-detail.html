@@ -22,25 +22,24 @@
     <div class="grid grid-cols-1 lg:grid-cols-[1fr_auto] gap-x-16 gap-y-8 items-end">
 
       <div>
-        <p class="text-xs uppercase tracking-widest text-muted mb-4" data-animate>
-          {% if include.work.category %}{{ include.work.category }}{% else %}Client Work{% endif %}
-        </p>
         <h1 class="hero-title max-w-3xl leading-[0.9]" data-animate>{{ include.work.name }}</h1>
+        {% if include.work.overview or include.work.about %}
+        <p class="text-xl sm:text-xl leading-relaxed text-secondary font-sans text-pretty mt-8 max-w-3xl" data-animate>
+          {% if include.work.overview %}{{ include.work.overview }}{% else %}{{ include.work.about }}{% endif %}
+        </p>
+        {% endif %}
       </div>
 
       <div class="flex flex-col gap-5 lg:items-end lg:text-right pb-2" data-animate>
         <div>
-          <p class="text-xs uppercase tracking-widest text-muted mb-1">Location</p>
           <p class="text-sm text-secondary">{{ include.work.location }}</p>
         </div>
         <div>
-          <p class="text-xs uppercase tracking-widest text-muted mb-1">Year</p>
           <p class="text-sm text-secondary">
             {{ include.work.from }}{% if include.work.until != 0 %} – {{ include.work.until }}{% endif %}
           </p>
         </div>
         <div>
-          <p class="text-xs uppercase tracking-widest text-muted mb-2">Services</p>
           <div class="flex flex-wrap gap-1.5 lg:justify-end">
             {% for service in include.work.services %}
             <span class="tag px-3 py-1.5">{{ service }}</span>
@@ -58,46 +57,14 @@
 
 
 {% comment %} ---- BODY COPY ---- {% endcomment %}
-{% assign has_body = false %}
-{% if include.work.overview or include.work.about or include.work.challenge or include.work.approach or include.work.outcome %}
-  {% assign has_body = true %}
-{% endif %}
-
-{% if has_body %}
+{% if include.work.outcome %}
 <section class="pb-16 lg:pb-24 px-6 lg:px-8">
   <div class="container mx-auto">
     <div class="max-w-2xl">
 
-      {% if include.work.overview %}
-      <p class="text-xl sm:text-2xl leading-relaxed text-secondary font-sans text-pretty" data-animate>
-        {{ include.work.overview }}
-      </p>
-      {% elsif include.work.about %}
-      <p class="text-xl sm:text-2xl leading-relaxed text-secondary font-sans text-pretty" data-animate>
-        {{ include.work.about }}
-      </p>
-      {% endif %}
-
-      {% if include.work.challenge %}
-      <div class="mt-12" data-animate>
-        <p class="text-xs uppercase tracking-widest text-muted mb-4">The Brief</p>
-        <p class="text-base leading-loose text-secondary">{{ include.work.challenge }}</p>
-      </div>
-      {% endif %}
-
-      {% if include.work.approach %}
       <div class="mt-10" data-animate>
-        <p class="text-xs uppercase tracking-widest text-muted mb-4">Our Approach</p>
-        <p class="text-base leading-loose text-secondary">{{ include.work.approach }}</p>
-      </div>
-      {% endif %}
-
-      {% if include.work.outcome %}
-      <div class="mt-10" data-animate>
-        <p class="text-xs uppercase tracking-widest text-muted mb-4">Outcome</p>
         <p class="text-base leading-loose text-secondary">{{ include.work.outcome }}</p>
       </div>
-      {% endif %}
 
     </div>
   </div>
@@ -134,7 +101,6 @@
           {% endif %}
 
           <div class="max-w-xl">
-            <p class="text-xs uppercase tracking-widest text-muted mb-3">0{{ forloop.index }}</p>
             <h3 class="h3 mb-4">{{ feature.title }}</h3>
             <p class="text-base leading-loose text-secondary">{{ feature.description }}</p>
             {% if feature.link_service %}
@@ -164,7 +130,6 @@
 {% if other_works_arr.size > 0 %}
 <section class="py-16 border-t border-olive-200 dark:border-olive-800">
   <div class="container mx-auto px-6 lg:px-8">
-    <p class="text-xs uppercase tracking-widest text-muted mb-10" data-animate>More Work</p>
     <div class="grid grid-cols-1 gap-px bg-olive-200 dark:bg-olive-800 sm:grid-cols-2 lg:grid-cols-3">
       {% for item in other_works_arr limit: 3 %}
         {% assign w = item[1] %}

@@ -9,7 +9,6 @@ permalink: /services
 
 <header class="px-6 pt-24 pb-16 sm:pt-32 sm:pb-20 lg:px-8">
   <div class="container mx-auto">
-    <p class="text-xs uppercase tracking-widest text-muted" data-animate>Services</p>
     <h1 class="h1 max-w-3xl" data-animate>{{ site.data.content.services.title }}</h1>
     <p class="mt-8 text-xl font-sans text-pretty text-secondary sm:text-2xl leading-relaxed max-w-2xl" data-animate>{{ site.data.content.services.description }}</p>
   </div>
@@ -23,8 +22,7 @@ permalink: /services
       {% assign is_even = forloop.index | modulo: 2 %}
 
       <div class="{% if is_even == 0 %}lg:order-last{% endif %}">
-        <p class="text-xs uppercase tracking-widest text-subtle" data-animate>0{{ forloop.index }}</p>
-        <h2 class="mt-3 text-5xl font-display tracking-tight sm:text-7xl" data-animate>{{ service.title }}</h2>
+        <h2 class="text-5xl font-display tracking-tight sm:text-7xl" data-animate>{{ service.title }}</h2>
         <p class="mt-6 text-lg text-secondary leading-relaxed max-w-lg" data-animate>{{ service.description }}</p>
 
         <div class="mt-10" data-animate>
