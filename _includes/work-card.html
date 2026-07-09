@@ -1,0 +1,38 @@
+{% comment %}
+  work-card.html
+  Parameters:
+    include.work   — work data hash (required)
+    include.slug   — work slug string (required)
+    include.class  — extra classes appended to the <a> tag (optional)
+    include.filter — if truthy, adds work-item class and data-services attribute for CSS filtering
+{% endcomment %}
+<a
+  href="/work/{{ include.slug }}"
+  class="work-card group flex flex-col rounded-2xl overflow-hidden bg-olive-100 dark:bg-olive-950 transition-shadow{% if include.filter %} work-item{% endif %}{% if include.class %} {{ include.class }}{% endif %}"
+  {% if include.filter %}data-services="{{ include.work.services | join: ',' }}"{% endif %}
+>
+  {% if include.work.images.size > 0 %}
+  <div class="work-card__image shrink-0">
+    <img
+      src="/assets/images/work/{{ include.slug }}/{{ include.work.images[0].file }}"
+      alt="{{ include.work.name }}"
+      class="w-full aspect-[4/3] object-cover"
+      loading="lazy"
+    >
+  </div>
+  {% endif %}
+  <div class="work-card__content flex flex-col flex-1 p-6 sm:p-8">
+    <div class="flex flex-wrap gap-1.5 mb-4">
+      {% for service in include.work.services %}
+      <span class="tag text-xs">{{ service }}</span>
+      {% endfor %}
+    </div>
+    <h2 class="font-display text-2xl sm:text-3xl font-bold tracking-tight leading-tight">{{ include.work.name }}</h2>
+    <p class="mt-3 text-sm leading-relaxed text-secondary">{{ include.work.about }}</p>
+    <div class="mt-6">
+      <span class="work-card__cta inline-flex items-center gap-2 px-5 py-2 rounded-full border text-sm font-medium transition-colors">
+        View Case Study <span>↗</span>
+      </span>
+    </div>
+  </div>
+</a>

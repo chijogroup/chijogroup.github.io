@@ -28,43 +28,33 @@ permalink: /work
 <section class="px-6 pb-24 lg:px-8">
   <div class="container mx-auto">
 
+    <!-- Filter anchor targets (zero-height, sits just above filter bar) -->
+    {% for service in all_services %}
+    <span id="filter-{{ service | slugify }}" class="filter-anchor"></span>
+    {% endfor %}
+
     <!-- Filter bar -->
     <div class="flex flex-wrap gap-2 mb-2 pb-8 border-b border-olive-200 dark:border-olive-800" data-animate>
-      <button data-filter="all" class="filter-btn active px-4 py-1.5 rounded-full text-sm font-medium border border-olive-200 dark:border-olive-800 transition-colors cursor-pointer">
-        All
-      </button>
+      <a href="/work/" class="filter-btn filter-btn-all px-4 py-1.5 rounded-full text-sm font-medium border border-olive-200 dark:border-olive-800 transition-colors">
+        All Projects
+      </a>
       {% for service in all_services %}
-      <button data-filter="{{ service }}" class="filter-btn px-4 py-1.5 rounded-full text-sm font-medium border border-olive-200 dark:border-olive-800 transition-colors cursor-pointer">
+      <a href="#filter-{{ service | slugify }}" class="filter-btn px-4 py-1.5 rounded-full text-sm font-medium border border-olive-200 dark:border-olive-800 transition-colors">
         {{ service }}
-      </button>
+      </a>
       {% endfor %}
     </div>
 
-    <!-- Work list -->
-    <div id="work-list" class="divide-y divide-olive-100 dark:divide-olive-900">
+    <!-- Work grid -->
+    <div id="work-list" class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-8 items-start pt-8">
       {% for work in sorted_work %}
-        {% assign slug = work.slug %}
         {% assign idx = forloop.index %}
-        <a
-          href="/work/{{ work.name | downcase | replace: ' ', '-' }}"
-          class="work-item group flex items-center gap-6 sm:gap-10 py-7 sm:py-10 transition-colors"
-          data-services="{{ work.services | join: ',' }}"
-        >
-          <h2 class="font-display tracking-tight transition-colors leading-none flex-1 text-4xl sm:text-6xl lg:text-7xl">{{ work.name }}</h2>
-
-          <div class="ml-auto shrink-0 hidden sm:flex flex-col gap-1.5 items-end">
-            <span class="text-sm text-subtle">{{ work.from }}</span>
-            <p class="text-xs text-muted text-right max-w-[180px] leading-relaxed">{{ work.services | join: " · " }}</p>
-          </div>
-
-          <span class="work-arrow text-dim transition-colors shrink-0 text-xl">→</span>
-        </a>
+        {% if idx == 2 %}
+          {% include work-card.html work=work slug=work.slug class="md:mt-24" filter=true %}
+        {% else %}
+          {% include work-card.html work=work slug=work.slug filter=true %}
+        {% endif %}
       {% endfor %}
-    </div>
-
-    <!-- Empty state -->
-    <div id="work-empty" class="hidden py-24 text-center">
-      <p class="text-muted text-lg">No projects match this filter.</p>
     </div>
 
   </div>
@@ -82,41 +72,64 @@ permalink: /work
 </section>
 
 <style>
+  .filter-anchor { display: block; height: 0; overflow: hidden; }
+
+  /* Base filter button styles */
   .filter-btn { color: oklch(46.6% 0.025 107.3); }
   .filter-btn:hover { color: oklch(15.3% 0.006 107.1); background-color: oklch(96.6% 0.005 106.5); }
-  .filter-btn.active { background-color: oklch(15.3% 0.006 107.1); color: white; border-color: oklch(15.3% 0.006 107.1); }
+
+  /* All Projects is active by default (no hash) */
+  .filter-btn-all { background-color: oklch(15.3% 0.006 107.1); color: white; border-color: oklch(15.3% 0.006 107.1); }
+  .filter-btn-all:hover { background-color: oklch(15.3% 0.006 107.1); color: white; }
+
+  /* When a service filter is active, deactivate All Projects */
+  body:has([id^="filter-"]:target) .filter-btn-all {
+    background-color: transparent;
+    color: oklch(46.6% 0.025 107.3);
+    border-color: oklch(83% 0.015 107);
+  }
+
+  /* Per-service: activate button + hide non-matching cards */
+  {% for service in all_services %}
+  {% assign slug = service | slugify %}
+  body:has(#filter-{{ slug }}:target) [href="#filter-{{ slug }}"] {
+    background-color: oklch(15.3% 0.006 107.1);
+    color: white;
+    border-color: oklch(15.3% 0.006 107.1);
+  }
+  body:has(#filter-{{ slug }}:target) .work-item:not([data-services*="{{ service }}"]) {
+    display: none;
+  }
+  {% endfor %}
+
   @media (prefers-color-scheme: dark) {
     .filter-btn { color: rgb(156 163 175); }
     .filter-btn:hover { color: white; background-color: oklch(22.8% 0.013 107.4); }
-    .filter-btn.active { background-color: white; color: oklch(15.3% 0.006 107.1); border-color: white; }
+    .filter-btn-all { background-color: white; color: oklch(15.3% 0.006 107.1); border-color: white; }
+    .filter-btn-all:hover { background-color: white; color: oklch(15.3% 0.006 107.1); }
+    body:has([id^="filter-"]:target) .filter-btn-all {
+      background-color: transparent;
+      color: rgb(156 163 175);
+      border-color: oklch(30% 0.015 107);
+    }
+    {% for service in all_services %}
+    {% assign slug = service | slugify %}
+    body:has(#filter-{{ slug }}:target) [href="#filter-{{ slug }}"] {
+      background-color: white;
+      color: oklch(15.3% 0.006 107.1);
+      border-color: white;
+    }
+    {% endfor %}
   }
-  .work-item.hidden { display: none; }
+
+  .work-card { box-shadow: 0 1px 3px oklch(15% 0.006 107 / 0.06); }
+  .work-card:hover { box-shadow: 0 4px 24px oklch(15% 0.006 107 / 0.12); }
+  .work-card__cta { border-color: oklch(70% 0.025 107); color: oklch(30% 0.012 107); }
+  .work-card:hover .work-card__cta { background-color: oklch(15.3% 0.006 107.1); border-color: oklch(15.3% 0.006 107.1); color: white; }
+  @media (prefers-color-scheme: dark) {
+    .work-card { box-shadow: none; }
+    .work-card:hover { box-shadow: 0 4px 24px oklch(5% 0.003 107 / 0.4); }
+    .work-card__cta { border-color: oklch(35% 0.02 107); color: oklch(75% 0.02 107); }
+    .work-card:hover .work-card__cta { background-color: white; border-color: white; color: oklch(15.3% 0.006 107.1); }
+  }
 </style>
-
-<script>
-  document.addEventListener('DOMContentLoaded', function () {
-    // Filter logic
-    var buttons = document.querySelectorAll('.filter-btn');
-    var items = document.querySelectorAll('.work-item');
-    var empty = document.getElementById('work-empty');
-
-    buttons.forEach(function (btn) {
-      btn.addEventListener('click', function () {
-        var filter = btn.dataset.filter;
-        buttons.forEach(function (b) { b.classList.remove('active'); });
-        btn.classList.add('active');
-
-        var visible = 0;
-        items.forEach(function (item) {
-          var services = item.dataset.services ? item.dataset.services.split(',') : [];
-          var show = filter === 'all' || services.includes(filter);
-          item.classList.toggle('hidden', !show);
-          if (show) visible++;
-        });
-
-        empty.classList.toggle('hidden', visible > 0);
-      });
-    });
-
-  });
-</script>
