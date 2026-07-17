@@ -18,15 +18,10 @@ permalink: /work
 {% assign all_services = all_services | sort %}
 {% assign sorted_work = work_array | sort: "from" | reverse %}
 
-<header class="px-6 pt-24 pb-16 sm:pt-32 sm:pb-20 lg:px-8">
-  <div class="container mx-auto">
-    <h1 class="h1 max-w-3xl" data-animate>Selected projects</h1>
-    <p class="mt-8 text-xl font-sans text-pretty text-secondary sm:text-2xl leading-relaxed max-w-2xl" data-animate>A look at what we've been building — from brand foundations to full-stack products.</p>
-  </div>
-</header>
+{% include header.html title="Selected projects" content="A look at what we've been building — from brand foundations to full-stack products." %}
 
 <section class="px-6 pb-24 lg:px-8">
-  <div class="container mx-auto">
+  <div class="max-w-7xl mx-auto">
 
     <!-- Filter anchor targets (zero-height, sits just above filter bar) -->
     {% for service in all_services %}
@@ -34,7 +29,7 @@ permalink: /work
     {% endfor %}
 
     <!-- Filter bar -->
-    <div class="flex flex-wrap gap-2 mb-2 pb-8 border-b border-olive-200 dark:border-olive-800" data-animate>
+    <div class="flex flex-wrap justify-center gap-2 mb-2 pb-8 border-b border-olive-200 dark:border-olive-800" data-animate>
       <a href="/work/" class="filter-btn filter-btn-all px-4 py-1.5 rounded-full text-sm font-medium border border-olive-200 dark:border-olive-800 transition-colors">
         All Projects
       </a>

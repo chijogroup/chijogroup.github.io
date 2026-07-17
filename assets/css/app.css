@@ -55,7 +55,26 @@
 
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-display);
-    @apply text-olive-950 dark:text-white;
+    @apply text-olive-950 tracking-tight dark:text-white;
+  }
+
+
+  h2 {
+     @apply text-4xl sm:text-5xl md:text-6xl;
+  }
+
+  h3 {
+    @apply  text-3xl sm:text-4xl md:text-5xl;
+  }
+
+
+  header {
+    @apply px-6 py-20 lg:px-8;
+  }
+
+
+  section {
+    @apply py-16 sm:py-28 px-4;
   }
 
  
@@ -65,18 +84,20 @@
 @layer components {
 
   .h1 {
-    @apply text-4xl tracking-tight sm:text-7xl md:text-8xl;
+    @apply text-6xl sm:text-7xl md:text-8xl;
   }
 
   .h2 {
-    @apply text-3xl tracking-tight sm:text-5xl md:text-6xl;
+    @apply text-4xl sm:text-5xl md:text-6xl;
   }
 
   .h3 {
-    @apply text-2xl tracking-tight sm:text-4xl md:text-5xl;
+    @apply text-2xl sm:text-4xl md:text-5xl;
   }
 
-
+  .h4 {
+    @apply text-xl sm:text-2xl md:text-3xl;
+  }
 
   .section {
     @apply py-8 lg:py-16;

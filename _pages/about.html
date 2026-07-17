@@ -8,17 +8,11 @@ permalink: /about
 {% assign people = site.data.people %}
 
 
-<!-- Hero -->
-<header class="px-6 pt-24 pb-16 sm:pt-32 sm:pb-20 lg:px-8">
-  <div class="container mx-auto">
-    <h1 class="h1 max-w-3xl" data-animate>{{ about.title }}</h1>
-    <p class="mt-8 text-xl font-sans text-pretty text-secondary sm:text-2xl leading-relaxed max-w-2xl" data-animate>{{ about.description }}</p>
-  </div>
-</header>
+{% include header.html title=about.title content=about.description center=true %}
 
 <!-- Story -->
-<section class="py-16 sm:py-24 border-t border-olive-200 dark:border-olive-900">
-  <div class="container mx-auto px-6 lg:px-8">
+<section>
+  <div class="max-w-7xl mx-auto px-6 lg:px-8">
     <div class="grid grid-cols-1 gap-16 lg:grid-cols-2 lg:gap-24 items-center">
 
       <div>
@@ -35,8 +29,8 @@ permalink: /about
 
 
 <!-- Team -->
-<section class="py-16 sm:py-24 border-t border-olive-200 dark:border-olive-900">
-  <div class="container mx-auto px-6 lg:px-8">
+<section>
+  <div class="max-w-7xl mx-auto px-6 lg:px-8">
 
     <h2 class="text-3xl font-display tracking-tight sm:text-5xl" data-animate>Our team.</h2>
 
@@ -45,7 +39,7 @@ permalink: /about
         <div data-animate>
           <div class="aspect-4/5 w-full rounded-2xl bg-surface-1 dark:bg-olive-900 mb-6"></div>
           <h3 class="text-3xl font-display tracking-tight sm:text-4xl">{{ person.name }}</h3>
-          <p class="mt-3 text-base text-secondary leading-relaxed max-w-sm">{{ person.bio }}</p>
+          <p class="mt-3 text-lg text-secondary leading-relaxed max-w-sm">{{ person.role }}</p>
         </div>
       {% endfor %}
     </div>
@@ -58,8 +52,8 @@ permalink: /about
 
 
 <!-- Values -->
-<section class="py-16 sm:py-24 border-t border-olive-200 dark:border-olive-900">
-  <div class="container mx-auto px-6 lg:px-8">
+<section>
+  <div class="max-w-7xl mx-auto px-6 lg:px-8">
 
     <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-14">
       <div>
@@ -67,10 +61,10 @@ permalink: /about
       </div>
     </div>
 
-    <div class="grid grid-cols-1 gap-px  sm:grid-cols-2 lg:grid-cols-3">
+    <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
       {% for item in about.values.items %}
-        <div class="flex flex-col gap-3 p-8 bg-surface-0 dark:bg-olive-950" data-animate>
-          <h3 class="text-2xl font-display tracking-tight sm:text-3xl">{{ item.title }}</h3>
+        <div class="flex flex-col gap-3 p-10 bg-surface-0 shadow dark:bg-olive-950" data-animate>
+          <h3 class="h4">{{ item.title }}</h3>
           <p class="text-sm text-secondary leading-relaxed">{{ item.description }}</p>
         </div>
       {% endfor %}
@@ -81,8 +75,8 @@ permalink: /about
 
 
 <!-- Process -->
-<section class="py-16 sm:py-24 border-t border-olive-200 dark:border-olive-900">
-  <div class="container mx-auto px-6 lg:px-8">
+<section>
+  <div class="max-w-7xl mx-auto px-6 lg:px-8">
 
     <h2 class="text-3xl font-display tracking-tight sm:text-5xl mb-14" data-animate>{{ about.process.heading }}</h2>
 

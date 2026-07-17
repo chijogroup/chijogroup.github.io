@@ -5,23 +5,18 @@ permalink: /contact
 ---
 
 
-<section class="px-6 pt-24 pb-16 sm:pt-32 sm:pb-20 lg:px-8">
+{% include header.html 
+   title=site.data.content.contact.title 
+   content=site.data.content.contact.description 
+%}
+
+
+<section>
   <div class="container mx-auto">
 
-    <div class="flex flex-col gap-4 max-w-4xl">
-      <div>
-        <h1 class="hero-title" data-animate>{{ site.data.content.contact.title }}</h1>
-        <p class="mt-6 text-xl text-secondary leading-relaxed" data-animate>{{ site.data.content.contact.description }}</p>
-      </div>
+    
 
-      <div class="pt-4" data-animate>
-        <a href="mailto:hello@chijo.my" class="contact-link text-lg font-medium">
-          hello@chijo.my
-        </a>
-      </div>
-    </div>
-
-    <div data-animate class="max-w-4xl mt-16">
+    <div data-animate class="max-w-4xl mx-auto">
       <form action="http://localhost:3000/f/019f03a4-b2d9-776d-a5c3-2451ab41e408" method="POST">
         <div class="grid grid-cols-1 gap-x-8 gap-y-8 sm:grid-cols-2">
 
@@ -61,27 +56,7 @@ permalink: /contact
             <textarea id="message" name="message" rows="5" maxlength="500" class="form-input"></textarea>
           </div>
 
-          <fieldset class="sm:col-span-2">
-            <legend class="form-label">Expected budget</legend>
-            <div class="mt-3 grid grid-cols-2 gap-3 sm:grid-cols-4">
-              <label class="budget-card">
-                <input type="radio" name="budget" value="under_25k" class="sr-only" checked />
-                Less than $25K
-              </label>
-              <label class="budget-card">
-                <input type="radio" name="budget" value="25k-50k" class="sr-only" />
-                $25K – $50K
-              </label>
-              <label class="budget-card">
-                <input type="radio" name="budget" value="50k-100k" class="sr-only" />
-                $50K – $100K
-              </label>
-              <label class="budget-card">
-                <input type="radio" name="budget" value="over_100k" class="sr-only" />
-                $100K+
-              </label>
-            </div>
-          </fieldset>
+          
 
           <div class="sm:col-span-2 pt-2">
             <button type="submit" class="btn btn-primary w-full sm:w-auto">Send message</button>
