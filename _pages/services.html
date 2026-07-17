@@ -7,22 +7,17 @@ permalink: /services
 {% assign services = site.data.services.root %}
 
 
-<header class="px-6 pt-24 pb-16 sm:pt-32 sm:pb-20 lg:px-8">
-  <div class="container mx-auto">
-    <h1 class="h1 max-w-3xl" data-animate>{{ site.data.content.services.title }}</h1>
-    <p class="mt-8 text-xl font-sans text-pretty text-secondary sm:text-2xl leading-relaxed max-w-2xl" data-animate>{{ site.data.content.services.description }}</p>
-  </div>
-</header>
+{% include header.html title=site.data.content.services.title content=site.data.content.services.description %}
 
 {% for service in services %}
-  <section class="py-16 sm:py-24 border-olive-200 dark:border-olive-900">
-  <div class="container mx-auto px-6 lg:px-8">
+  <section>
+  <div class="max-w-7xl mx-auto px-6 lg:px-8">
     <div class="grid grid-cols-1 gap-16 lg:grid-cols-2 lg:gap-24 items-start">
 
       {% assign is_even = forloop.index | modulo: 2 %}
 
       <div class="{% if is_even == 0 %}lg:order-last{% endif %}">
-        <h2 class="text-5xl font-display tracking-tight sm:text-7xl" data-animate>{{ service.title }}</h2>
+        <h2 data-animate>{{ service.title }}</h2>
         <p class="mt-6 text-lg text-secondary leading-relaxed max-w-lg" data-animate>{{ service.description }}</p>
 
         <div class="mt-10" data-animate>
